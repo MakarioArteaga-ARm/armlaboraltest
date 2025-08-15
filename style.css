@@ -337,6 +337,8 @@ section {
     display: block;
     margin-bottom: 6px;
     color: var(--primary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .val .sub {
@@ -420,7 +422,6 @@ footer {
     padding: 16px 0;
     color: #9CA3AF;
     font-size: 14px;
-    text-align: center;
 }
 
 /* Specific Classes */
@@ -583,12 +584,4 @@ textarea.input {
         align-items: flex-start;
         gap: 10px;
     }
-}
-/*
- * Corrección para centrar los botones en las secciones con la clase .center
- * Este estilo sobrescribe el de la clase .actions para alinear los elementos
- * al centro, no a la derecha.
- */
-.center .actions {
-    justify-content: center;
 }
