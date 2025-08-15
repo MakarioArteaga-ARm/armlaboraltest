@@ -76,7 +76,6 @@ header {
 .brand img {
     height: 40px;
     width: auto;
-    /* Ajuste para que el logo se vea blanco sobre fondo oscuro */
     filter: brightness(0) invert(1);
 }
 
@@ -121,8 +120,24 @@ nav a:focus {
     position: relative;
     overflow: hidden;
     padding: 90px 0;
-    background: linear-gradient(120deg, rgba(14, 77, 146, 0.08), rgba(26, 91, 168, 0.04));
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
+/* Fondo con la imagen y el gradiente azulado para cada página */
+.hero.hero-index {
+    background-image: linear-gradient(rgba(14, 77, 146, 0.6), rgba(14, 77, 146, 0.6)), url('index-page.jpeg');
+}
+.hero.min.hero-nosotros {
+    background-image: linear-gradient(rgba(14, 77, 146, 0.6), rgba(14, 77, 146, 0.6)), url('nosotros-page.jpg');
+}
+.hero.min.hero-tokens {
+    background-image: linear-gradient(rgba(14, 77, 146, 0.6), rgba(14, 77, 146, 0.6)), url('tokens-page.jpg');
+}
+.hero.min.hero-contacto {
+    background-image: linear-gradient(rgba(14, 77, 146, 0.6), rgba(14, 77, 146, 0.6)), url('contacto-page.jpg');
+}
+
 
 .hero-inner {
     display: grid;
@@ -148,11 +163,12 @@ nav a:focus {
     font-size: clamp(3rem, 7vw, 4.2rem);
     line-height: 1.05;
     margin-bottom: 16px;
+    color: white; /* Para que el texto sea visible */
 }
 
 .hero p.lead {
     font-size: 1.25rem;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.9); /* Color blanco con opacidad */
     max-width: 55ch;
     margin-bottom: 24px;
     font-family: 'Montserrat', sans-serif;
@@ -189,7 +205,7 @@ nav a:focus {
 }
 
 .hero-card {
-    background: var(--card);
+    background: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para la tarjeta */
     border-radius: var(--radius);
     padding: 30px;
     border: 1px solid #E6EAF2;
@@ -201,6 +217,10 @@ nav a:focus {
 .hero-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--ring-hover);
+}
+
+.hero-card strong {
+  color: var(--primary);
 }
 
 .hero-list {
@@ -286,7 +306,7 @@ section {
     margin-bottom: 8px;
 }
 
-.card p {
+p {
     color: var(--muted);
     flex-grow: 1;
 }
