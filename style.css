@@ -202,14 +202,15 @@ nav a:focus {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Montserrat', sans-serif;
 }
+
 .btn.ghost {
   background: none;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  border: 1px solid var(--card);
+  color: var(--card);
 }
 .btn.ghost:hover {
-  background: var(--primary);
-  color: var(--card);
+  background: var(--card);
+  color: var(--primary);
 }
 
 .hero-card {
