@@ -173,7 +173,7 @@ nav a:focus {
 
 .hero p.lead {
     font-size: 1.25rem;
-    color: var(--card);
+    color: var(--card); /* Texto en color blanco para que sea visible */
     max-width: 55ch;
     margin-bottom: 24px;
     font-family: 'Montserrat', sans-serif;
@@ -202,15 +202,14 @@ nav a:focus {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Montserrat', sans-serif;
 }
-
 .btn.ghost {
   background: none;
-  border: 1px solid var(--card);
-  color: var(--card);
+  border: 1px solid var(--primary);
+  color: var(--primary);
 }
 .btn.ghost:hover {
-  background: var(--card);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--card);
 }
 
 .hero-card {
@@ -406,18 +405,18 @@ footer p.sub {
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
 }
-.btn.alt {
-  background: var(--accent);
-}
 
+.btn.alt {
+    background: var(--accent);
+}
 .btn.primary {
     background: var(--primary);
     color: var(--card);
 }
 .btn.ghost {
-  background: var(--card);
-  border: 1px solid var(--primary);
-  color: var(--primary);
+    background: var(--card);
+    border: 1px solid var(--primary);
+    color: var(--primary);
 }
 
 .btn.primary:hover {
