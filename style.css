@@ -154,7 +154,7 @@ nav a:focus {
     display: inline-block;
     font-weight: 600;
     color: var(--primary);
-    background: var(--bg);
+    background: var(--card);
     border: 1px solid #E6EAF2;
     padding: 8px 16px;
     border-radius: 999px;
@@ -162,20 +162,24 @@ nav a:focus {
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
 }
-
 .hero h1 {
     font-size: clamp(3rem, 7vw, 4.2rem);
     line-height: 1.05;
     margin-bottom: 16px;
-    color: white; /* Para que el texto sea visible */
+}
+.hero.min h1 {
+    color: var(--card);
 }
 
 .hero p.lead {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9); /* Color blanco con opacidad */
+    color: var(--muted);
     max-width: 55ch;
     margin-bottom: 24px;
     font-family: 'Montserrat', sans-serif;
+}
+.hero.min p.lead {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .actions {
@@ -209,7 +213,7 @@ nav a:focus {
 }
 
 .hero-card {
-    background: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para la tarjeta */
+    background: rgba(255, 255, 255, 0.9);
     border-radius: var(--radius);
     padding: 30px;
     border: 1px solid #E6EAF2;
@@ -612,20 +616,4 @@ textarea.input {
         align-items: flex-start;
         gap: 10px;
     }
-}
-/*
- * Corrección para centrar los botones en las secciones con la clase .center
- * Este estilo sobrescribe el de la clase .actions para alinear los elementos
- * al centro, no a la derecha.
- */
-.center .actions {
-    justify-content: center;
-}
-/*
- * Corrección para centrar los botones en las secciones con la clase .center
- * Este estilo sobrescribe el de la clase .actions para alinear los elementos
- * al centro, no a la derecha.
- */
-.center .actions {
-    justify-content: center;
 }
