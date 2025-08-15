@@ -630,3 +630,7 @@ textarea.input {
         justify-content: center;
     }
 }
+/* Corrección para el color del subtítulo en el footer */
+footer p.sub {
+    color: var(--card); /* Esto asegura que el color sea blanco */
+}
