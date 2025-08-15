@@ -207,9 +207,14 @@ nav a:focus {
     box-shadow: var(--ring-hover);
 }
 
-.cta.alt {
-    background: var(--accent);
-    color: var(--card);
+.btn.ghost {
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.btn.ghost:hover {
+  background: var(--primary);
+  color: var(--card);
 }
 
 .hero-card {
@@ -399,9 +404,6 @@ p {
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
 }
-.btn.alt {
-  background: var(--accent);
-}
 
 .btn.primary {
     background: var(--primary);
@@ -589,7 +591,7 @@ textarea.input {
         position: absolute;
         right: 10px;
         top: 65px;
-        background: var(--card);
+        background: var(--primary);
         border: 1px solid #E6EAF2;
         border-radius: var(--radius);
         padding: 12px 18px;
@@ -597,16 +599,21 @@ textarea.input {
         flex-direction: column;
         gap: 10px;
         min-width: 200px;
+        filter: none;
+        backdrop-filter: none;
     }
     nav ul.show {
         display: flex;
+    }
+    nav ul a {
+      color: var(--card);
     }
     .menu-toggle {
         display: block;
         z-index: 1001;
     }
     .brand {
-        color: var(--primary);
+        color: var(--card);
     }
     .hero h1 {
         font-size: clamp(2.5rem, 8vw, 3.2rem);
@@ -618,5 +625,8 @@ textarea.input {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+    .center .actions {
+        justify-content: center;
     }
 }
