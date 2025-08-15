@@ -155,7 +155,7 @@ nav a:focus {
     font-weight: 600;
     color: var(--primary);
     background: var(--card);
-    border: 1px solid #E6EAF2;
+    border: 1px solid var(--primary);
     padding: 8px 16px;
     border-radius: 999px;
     font-size: 14px;
@@ -201,11 +201,6 @@ nav a:focus {
     box-shadow: var(--ring);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Montserrat', sans-serif;
-}
-
-.cta:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--ring-hover);
 }
 
 .btn.ghost {
@@ -412,7 +407,6 @@ p {
 .btn.alt {
     background: var(--accent);
 }
-
 .btn.primary {
     background: var(--primary);
     color: var(--card);
@@ -426,7 +420,6 @@ p {
 .btn.primary:hover {
     background: #00366D;
 }
-
 .btn.ghost:hover {
     background: var(--primary);
     color: var(--card);
@@ -435,7 +428,7 @@ p {
 /* Footer */
 footer {
     background: var(--primary);
-    color: #E6EAF2;
+    color: var(--card);
     margin-top: 40px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -449,7 +442,7 @@ footer {
 }
 
 .foot a {
-    color: #E6EAF2;
+    color: var(--card);
     text-decoration: none;
     transition: color 0.3s ease;
 }
