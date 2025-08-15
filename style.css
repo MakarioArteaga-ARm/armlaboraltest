@@ -140,6 +140,7 @@ nav a:focus {
     border-radius: 999px;
     font-size: 14px;
     margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero h1 {
@@ -153,6 +154,7 @@ nav a:focus {
     color: var(--muted);
     max-width: 55ch;
     margin-bottom: 24px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .actions {
@@ -172,6 +174,7 @@ nav a:focus {
     font-weight: 700;
     box-shadow: var(--ring);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .cta:hover {
@@ -191,6 +194,7 @@ nav a:focus {
     border: 1px solid #E6EAF2;
     box-shadow: var(--ring);
     transition: transform 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero-card:hover {
@@ -209,6 +213,7 @@ nav a:focus {
     margin: 8px 0;
     padding-left: 20px;
     position: relative;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero-list li::before {
@@ -245,6 +250,12 @@ section {
     color: var(--muted);
     font-size: 15px;
     max-width: 60ch;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.center .sub {
+  max-width: 80ch;
+  margin: auto;
 }
 
 .solutions-grid {
@@ -262,6 +273,7 @@ section {
     flex-direction: column;
     box-shadow: var(--ring);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card:hover {
@@ -296,6 +308,7 @@ section {
     color: var(--muted);
     margin: 4px 6px 0 0;
     background-color: var(--bg);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .vals {
@@ -311,6 +324,7 @@ section {
     border-radius: 12px;
     padding: 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .val:hover {
@@ -326,6 +340,7 @@ section {
 
 .val .sub {
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .cta-band {
@@ -338,6 +353,10 @@ section {
     text-align: center;
 }
 
+.center h2, .center p.sub {
+  text-align: center;
+}
+
 .btn {
     display: inline-block;
     padding: 14px 24px;
@@ -346,6 +365,7 @@ section {
     font-weight: 700;
     transition: all 0.3s ease;
     border: 1px solid transparent;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .btn.primary {
@@ -373,6 +393,7 @@ footer {
     background: var(--ink);
     color: #E6EAF2;
     margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .foot {
@@ -419,6 +440,7 @@ footer {
     padding: 20px;
     box-shadow: var(--ring);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .tile:hover {
@@ -439,6 +461,7 @@ footer {
     box-shadow: var(--ring);
     max-width: 720px;
     margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .input {
