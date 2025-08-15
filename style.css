@@ -399,6 +399,9 @@ p {
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
 }
+.btn.alt {
+  background: var(--accent);
+}
 
 .btn.primary {
     background: var(--primary);
