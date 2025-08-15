@@ -173,7 +173,7 @@ nav a:focus {
 
 .hero p.lead {
     font-size: 1.25rem;
-    color: var(--card); /* Texto en color blanco para que sea visible */
+    color: var(--card);
     max-width: 55ch;
     margin-bottom: 24px;
     font-family: 'Montserrat', sans-serif;
@@ -375,6 +375,9 @@ p {
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
 }
+footer p.sub {
+    color: var(--card);
+}
 
 .cta-band {
     background: linear-gradient(120deg, rgba(14, 77, 146, 0.06), rgba(26, 91, 168, 0.04));
@@ -403,18 +406,18 @@ p {
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
 }
-
 .btn.alt {
-    background: var(--accent);
+  background: var(--accent);
 }
+
 .btn.primary {
     background: var(--primary);
     color: var(--card);
 }
 .btn.ghost {
-    background: var(--card);
-    border: 1px solid var(--primary);
-    color: var(--primary);
+  background: var(--card);
+  border: 1px solid var(--primary);
+  color: var(--primary);
 }
 
 .btn.primary:hover {
@@ -629,8 +632,4 @@ textarea.input {
     .center .actions {
         justify-content: center;
     }
-}
-/* Corrección para el color del subtítulo en el footer */
-footer p.sub {
-    color: var(--card); /* Esto asegura que el color sea blanco */
 }
