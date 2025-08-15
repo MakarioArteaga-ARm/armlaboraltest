@@ -50,8 +50,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: saturate(180%) blur(10px);
+    background: var(--primary);
     border-bottom: 1px solid #E6EAF2;
     transition: background 0.3s ease;
 }
@@ -69,7 +68,7 @@ header {
     align-items: center;
     font-weight: 800;
     letter-spacing: 0.2px;
-    color: var(--primary);
+    color: var(--card);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -77,6 +76,8 @@ header {
 .brand img {
     height: 40px;
     width: auto;
+    /* Ajuste para que el logo se vea blanco sobre fondo oscuro */
+    filter: brightness(0) invert(1);
 }
 
 nav ul {
@@ -89,7 +90,7 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: var(--ink);
+    color: var(--card);
     font-weight: 600;
     transition: color 0.3s ease;
     padding: 8px 0;
@@ -97,7 +98,7 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-    color: var(--primary);
+    color: var(--accent);
     outline: none;
 }
 
@@ -110,7 +111,7 @@ nav a:focus {
     display: block;
     width: 26px;
     height: 2px;
-    background: var(--ink);
+    background: var(--card);
     margin: 6px 0;
     transition: all 0.3s ease-in-out;
 }
@@ -390,7 +391,7 @@ section {
 
 /* Footer */
 footer {
-    background: var(--ink);
+    background: var(--primary);
     color: #E6EAF2;
     margin-top: 40px;
     font-family: 'Montserrat', sans-serif;
@@ -582,4 +583,12 @@ textarea.input {
         align-items: flex-start;
         gap: 10px;
     }
+}
+/*
+ * Corrección para centrar los botones en las secciones con la clase .center
+ * Este estilo sobrescribe el de la clase .actions para alinear los elementos
+ * al centro, no a la derecha.
+ */
+.center .actions {
+    justify-content: center;
 }
