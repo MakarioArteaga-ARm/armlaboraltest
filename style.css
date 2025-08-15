@@ -393,6 +393,9 @@ p {
 .center h2, .center p.sub {
   text-align: center;
 }
+.hero-index .actions {
+  justify-content: center;
+}
 
 .btn {
     display: inline-block;
@@ -403,6 +406,9 @@ p {
     transition: all 0.3s ease;
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
+}
+.btn.alt {
+  background: var(--accent);
 }
 
 .btn.primary {
