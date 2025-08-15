@@ -138,6 +138,10 @@ nav a:focus {
     background-image: linear-gradient(rgba(14, 77, 146, 0.6), rgba(14, 77, 146, 0.6)), url('contacto-page.jpg');
 }
 
+/* Color de texto del hero cuando hay imagen de fondo */
+.hero h1, .hero p.lead {
+    color: var(--card);
+}
 
 .hero-inner {
     display: grid;
@@ -309,6 +313,7 @@ section {
 p {
     color: var(--muted);
     flex-grow: 1;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card .actions {
@@ -454,7 +459,14 @@ footer {
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
 }
-
+/* Regla de estilo para los h4 dentro de las baldosas */
+.tile h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 8px;
+}
 .tile {
     background: var(--card);
     border: 1px solid #E6EAF2;
@@ -470,10 +482,6 @@ footer {
     box-shadow: var(--ring-hover);
 }
 
-.tile h4 {
-    margin: 0 0 8px;
-    color: var(--primary);
-}
 
 .form {
     background: var(--card);
@@ -604,4 +612,12 @@ textarea.input {
         align-items: flex-start;
         gap: 10px;
     }
+}
+/*
+ * Corrección para centrar los botones en las secciones con la clase .center
+ * Este estilo sobrescribe el de la clase .actions para alinear los elementos
+ * al centro, no a la derecha.
+ */
+.center .actions {
+    justify-content: center;
 }
