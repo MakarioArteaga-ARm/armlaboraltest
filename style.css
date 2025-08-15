@@ -173,7 +173,7 @@ nav a:focus {
 
 .hero p.lead {
     font-size: 1.25rem;
-    color: var(--muted);
+    color: var(--card); /* Texto en color blanco para que sea visible */
     max-width: 55ch;
     margin-bottom: 24px;
     font-family: 'Montserrat', sans-serif;
@@ -187,6 +187,7 @@ nav a:focus {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cta {
@@ -209,12 +210,12 @@ nav a:focus {
 
 .btn.ghost {
   background: none;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  border: 1px solid var(--card);
+  color: var(--card);
 }
 .btn.ghost:hover {
-  background: var(--primary);
-  color: var(--card);
+  background: var(--card);
+  color: var(--primary);
 }
 
 .hero-card {
@@ -407,17 +408,17 @@ p {
     border: 1px solid transparent;
     font-family: 'Montserrat', sans-serif;
 }
+
 .btn.alt {
-  background: var(--accent);
+    background: var(--accent);
 }
 
 .btn.primary {
     background: var(--primary);
     color: var(--card);
 }
-
 .btn.ghost {
-    background: none;
+    background: var(--card);
     border: 1px solid var(--primary);
     color: var(--primary);
 }
