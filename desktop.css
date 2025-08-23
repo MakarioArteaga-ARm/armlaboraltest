@@ -1,0 +1,84 @@
+/*
+ * desktop.css: Estilos para pantallas de escritorio (ancho > 900px).
+ *
+ * Aquí se corrigen los problemas de diseño en la sección del equipo
+ * y los testimonios, restaurando el efecto de zig-zag.
+*/
+
+@media (min-width: 901px) {
+    .hero-inner {
+        grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .grid-2, .reverse-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    /* Normal: [texto][media] */
+    .grid-2 { 
+        grid-template-areas: "text media";
+    }
+
+    /* Invertido: [media][texto] */
+    .reverse-grid { 
+        grid-template-areas: "media text";
+    }
+
+    /* Mapeo consistente por posición */
+    .grid-2 > :nth-child(1),
+    .reverse-grid > :nth-child(1) { 
+        grid-area: text; 
+    }
+    .grid-2 > :nth-child(2),
+    .reverse-grid > :nth-child(2) { 
+        grid-area: media; 
+    }
+
+    .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        gap: 24px;
+        align-items: stretch;
+        align-content: start;
+    }
+
+    .section-head-left,
+    .section-head-right {
+        text-align: left;
+    }
+
+    #nosotros .grid-2 .card {
+        min-height: 250px;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+
+    /* Restauración de los efectos de hover de los testimonios */
+    .testimonial-card:hover {
+        transform: scale(1.03);
+        z-index: 10;
+    }
+
+    .testimonial-card:hover .testimonial-preview {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .testimonial-card:hover .testimonial-full {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+    }
+
+    .testimonials-stack:hover .testimonial-card:not(:hover) {
+        filter: blur(2px) brightness(0.9);
+        transform: scale(0.98);
+    }
+}
