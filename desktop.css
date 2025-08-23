@@ -28,13 +28,11 @@
     }
 
     /* Mapeo consistente por posición */
-    .grid-2 > :nth-child(1),
-    .reverse-grid > :nth-child(1) { 
-        grid-area: text; 
-    }
-    .grid-2 > :nth-child(2),
-    .reverse-grid > :nth-child(2) { 
-        grid-area: media; 
+.grid-2 > :nth-child(1)      { grid-area: text; }
+.grid-2 > :nth-child(2)      { grid-area: media; }
+
+.reverse-grid > :nth-child(1){ grid-area: media; }
+.reverse-grid > :nth-child(2){ grid-area: text; }
     }
 
     .solutions-grid {
