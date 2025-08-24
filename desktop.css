@@ -1,82 +1,105 @@
-/*
- * desktop.css: Estilos para pantallas de escritorio (ancho > 900px).
- *
- * Aquí se corrigen los problemas de diseño en la sección del equipo
- * y los testimonios, restaurando el efecto de zig-zag.
-*/
+Va, compadre 👊.
+Aquí te dejo un **prompt quirúrgico** para que se lo pases a Gemini y te reescriba **los 3 archivos completos** (`desktop.css`, `nosotros.html`, `soluciones.html`). Con este prompt le das la orden clara de qué está roto, cómo arreglarlo y qué esperar como resultado.
 
-@media (min-width: 901px) {
-    .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr;
-    }
+---
 
-    .grid-2, .reverse-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: start;
-    }
+# 📝 Prompt para Gemini
 
-    /* Normal: [texto][media] */
-    .grid-2 { 
-        grid-template-areas: "text media";
-    }
+**Contexto:**
+Estoy trabajando en un sitio web de **ARm Laboral** con tres archivos clave:
 
-    /* Invertido: [media][texto] */
-    .reverse-grid { 
-        grid-template-areas: "media text";
-    }
+* `desktop.css`
+* `nosotros.html`
+* `soluciones.html`
 
-    /* Mapeo consistente por posición */
-.grid-2 > :nth-child(1)      { grid-area: text; }
-.grid-2 > :nth-child(2)      { grid-area: media; }
+⚠️ MUY IMPORTANTE: **index.html ya funciona bien, no debe tocarse ni romperse**.
 
-.reverse-grid > :nth-child(1){ grid-area: media; }
-.reverse-grid > :nth-child(2){ grid-area: text; }
-    }
+---
 
-    .solutions-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(240px, 1fr));
-        gap: 24px;
-        align-items: stretch;
-        align-content: start;
-    }
+## Problemas detectados
 
-    .section-head-left,
-    .section-head-right {
-        text-align: left;
-    }
+### 1. Error en testimonios (`nosotros.html`)
 
-    #nosotros .grid-2 .card {
-        min-height: 250px;
-    }
+* **Qué está mal:**
+  Al expandirse las tarjetas de testimonios aparece un espacio en blanco al inicio porque el bloque `.testimonial-full` ocupa espacio adicional.
 
-    .card h3 {
-        font-size: 1.4rem;
-        line-height: 1.4;
-    }
+* **Cómo arreglarlo:**
+  El `.testimonial-full` debe estar en `position:absolute; top:0; left:0; width:100%; height:100%; padding:24px; opacity:0; visibility:hidden;` y hacerse visible en hover.
+  De esa forma se superpone sin crear huecos.
 
-    /* Restauración de los efectos de hover de los testimonios */
-    .testimonial-card:hover {
-        transform: scale(1.03);
-        z-index: 10;
-    }
+* **Cómo debe lucir:**
 
-    .testimonial-card:hover .testimonial-preview {
-        opacity: 0;
-        visibility: hidden;
-        height: 0;
-    }
+  * En desktop: preview → se oculta al hover, full aparece limpio encima, sin brinco ni espacio en blanco.
+  * En móvil: testimonios completos siempre visibles (esto ya lo controla `mobile.css`, no lo toques).
 
-    .testimonial-card:hover .testimonial-full {
-        opacity: 1;
-        visibility: visible;
-        height: auto;
-    }
+---
 
-    .testimonials-stack:hover .testimonial-card:not(:hover) {
-        filter: blur(2px) brightness(0.9);
-        transform: scale(0.98);
-    }
-}
+### 2. Zigzag roto en secciones
+
+* **Qué está mal:**
+  En `nosotros.html` y `soluciones.html` las secciones no alternan correctamente entre texto ↔ tarjetas. Todas se quedaron del mismo lado.
+
+* **Cómo arreglarlo:**
+  Restaurar el patrón que sí funcionaba en index usando `grid-template-areas` en `desktop.css`.
+  Cada sección debe alternar con `grid-2 zigzag` (texto izq, tarjetas der) y `grid-2 zigzag reverse-grid` (tarjetas izq, texto der).
+
+* **Cómo debe lucir en `nosotros.html`:**
+
+  * **Misión/Visión:** texto izq, tarjetas der (normal).
+  * **Filosofía/Valores:** tarjetas izq, texto der (reverse).
+  * **Equipo:** tarjetas izq, texto der (reverse).
+  * **Testimonios:** tarjetas izq, texto der (reverse).
+
+* **Cómo debe lucir en `soluciones.html`:**
+
+  * **Operaciones:** tarjetas izq, texto der (reverse).
+  * **Cumplimiento:** texto izq, tarjetas der (normal).
+  * **Estrategia:** tarjetas izq, texto der (reverse).
+
+---
+
+### 3. CSS en `desktop.css`
+
+* **Qué está mal:**
+  Gemini anterior eliminó `grid-template-areas` y rompió todo el layout (index.html incluido).
+* **Cómo arreglarlo:**
+
+  * Restaurar `grid-template-areas` como en la versión original:
+
+    ```css
+    .grid-2 { grid-template-areas: "text media"; }
+    .grid-2.reverse-grid { grid-template-areas: "media text"; }
+    .grid-2 > :nth-child(1) { grid-area: text; }
+    .grid-2 > :nth-child(2) { grid-area: media; }
+    ```
+  * Conservar las mejoras en hover para testimonios (blur elegante).
+
+---
+
+## Instrucciones a Gemini
+
+1. Reescribe **archivos completos**:
+
+   * `desktop.css` con el grid restaurado y testimonios corregidos.
+   * `nosotros.html` con las secciones alternadas como se indicó.
+   * `soluciones.html` con las secciones alternadas como se indicó.
+
+2. No toques:
+
+   * `index.html` (debe seguir funcionando perfecto).
+   * `base.css`
+   * `mobile.css`
+
+3. Objetivo final:
+
+   * El zigzag se vea bien en desktop.
+   * Los testimonios expandan sin espacio en blanco y con blur elegante.
+   * En móvil siga todo apilado y sin parpadeos.
+
+---
+
+👉 Gemini, genera los **3 archivos completos corregidos** listos para reemplazar en el proyecto.
+
+---
+
+¿Quieres que te arme también una **versión resumida del prompt** (para cuando quieras mandarlo rápido a Gemini sin tanto detalle), o prefieres trabajar con esta versión extendida y bien explicada?
