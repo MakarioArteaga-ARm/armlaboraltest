@@ -1,0 +1,111 @@
+
+/*
+ * mobile.css: Estilos para pantallas móviles (ancho <= 900px).
+ *
+ * Versión simplificada: puro scroll vertical, sin grids, con ajuste de imágenes y fade-up al hacer scroll.
+*/
+
+@media (max-width: 900px) {
+    /* 👉 Forzar todo a ser apilado */
+    section,
+    .hero-inner,
+    .grid-2,
+    .grid-2.reverse-grid,
+    .foot,
+    .row,
+    .solutions-grid {
+        display: block !important;
+    }
+
+    /* 👉 Ajustes de tarjetas */
+    .card {
+        margin-bottom: 24px;
+        width: 100% !important;
+    }
+
+    /* 👉 Ajustes de imágenes */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 👉 Hero actions en columna */
+    .hero .actions {
+        margin-top: 20px;
+        display: block;
+    }
+
+    /* 👉 Encabezados centrados */
+    .section-head {
+        text-align: center;
+    }
+
+    .section-head .btn {
+        display: none;
+    }
+
+    /* 👉 Menú móvil */
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: var(--z-menu);
+        visibility: hidden;
+        pointer-events: none;
+        background-color: rgb(13 71 161 / .95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(.23, 1, .32, 1);
+    }
+
+    .main-menu.is-open {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    header.scrolled .main-menu.is-open a {
+        color: #fff;
+    }
+
+    .main-menu ul {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .main-menu a {
+        font-size: 1.5rem;
+    }
+
+    .main-menu a:hover {
+        color: var(--celeste-vibrante);
+    }
+
+    header.scrolled {
+        background: rgb(255 255 255 / .25);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgb(255 255 255 / .2);
+        box-shadow: 0 2px 8px rgb(0 0 0 / .06);
+    }
+
+    /* 👉 Testimonios simplificados */
+    .testimonial-preview {
+        display: none;
+    }
+    .testimonial-full {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+    }
+}
