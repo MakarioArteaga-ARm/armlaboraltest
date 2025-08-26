@@ -1,6 +1,5 @@
 /*
  * mobile.css: Estilos para pantallas móviles (ancho <= 900px).
- * Versión refactorizada: sin !important, mejor espaciado y jerarquía.
 */
 
 @media (max-width: 900px) {
