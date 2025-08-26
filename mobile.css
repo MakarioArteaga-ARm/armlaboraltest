@@ -1,50 +1,104 @@
-
 /*
  * mobile.css: Estilos para pantallas móviles (ancho <= 900px).
- *
- * Versión simplificada: puro scroll vertical, sin grids, con ajuste de imágenes y fade-up al hacer scroll.
+ * Versión refactorizada: sin !important, mejor espaciado y jerarquía.
 */
 
 @media (max-width: 900px) {
-    /* 👉 Forzar todo a ser apilado */
-    section,
+
+    /* --- AJUSTES GENERALES DE ESPACIADO Y RITMO --- */
+    section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .container {
+        padding-inline: 1.25rem;
+    }
+
+    /* --- ESTRUCTURA Y LAYOUT --- */
+    /* Apilado vertical para todos los contenedores principales */
     .hero-inner,
     .grid-2,
-    .grid-2.reverse-grid,
     .foot,
-    .row,
-    .solutions-grid {
-        display: block !important;
-    }
-
-    /* 👉 Ajustes de tarjetas */
-    .card {
-        margin-bottom: 24px;
-        width: 100% !important;
-    }
-
-    /* 👉 Ajustes de imágenes */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-
-    /* 👉 Hero actions en columna */
-    .hero .actions {
-        margin-top: 20px;
+    .row {
         display: block;
     }
 
-    /* 👉 Encabezados centrados */
-    .section-head {
+    /* --- HERO SECTION --- */
+    .hero {
+        padding: 120px 0 80px;
+    }
+
+    .hero-inner {
         text-align: center;
     }
 
+    .hero .actions {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .hero .actions .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* --- COMPONENTES --- */
+    .card {
+        margin-bottom: 24px;
+    }
+
+    .section-head {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
     .section-head .btn {
         display: none;
     }
+    
+    /* Centra el texto en las secciones de grid que quedan abajo */
+    .grid-2 > .grid-text {
+        text-align: center;
+        margin-bottom: 30px; /* Espacio entre texto y media al apilarse */
+    }
 
-    /* 👉 Menú móvil */
+    .grid-2 > .grid-text .actions {
+        justify-content: center; /* Centra también los botones dentro */
+    }
+
+
+    /* --- FORMULARIO DE CONTACTO --- */
+    .form .row > div {
+        margin-bottom: 16px;
+    }
+
+    .form .actions {
+        justify-content: center;
+    }
+
+    /* --- FOOTER (PIE DE PÁGINA) --- */
+    .foot {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .footer-left .brand,
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-right,
+    .footer-social,
+    .footer-credits {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* --- MENÚ MÓVIL --- */
     .menu-toggle {
         display: block;
     }
@@ -87,10 +141,6 @@
         font-size: 1.5rem;
     }
 
-    .main-menu a:hover {
-        color: var(--celeste-vibrante);
-    }
-
     header.scrolled {
         background: rgb(255 255 255 / .25);
         backdrop-filter: blur(8px);
@@ -98,7 +148,7 @@
         box-shadow: 0 2px 8px rgb(0 0 0 / .06);
     }
 
-    /* 👉 Testimonios simplificados */
+    /* --- TESTIMONIOS --- */
     .testimonial-preview {
         display: none;
     }
