@@ -26,7 +26,6 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" as="style" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- FIX: Orden y uso correcto de los archivos CSS -->
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="mobile.css" media="(max-width: 900px)">
   <link rel="stylesheet" href="desktop.css" media="(min-width: 901px)">
@@ -36,18 +35,8 @@
     <nav class="container nav">
       <a href="index.html" class="brand">
         <div class="logo-container">
-          <img class="logo-white" 
-               alt="ARm Laboral logo" 
-               src="logo-header-40.webp" 
-               srcset="logo-header-40.webp 1x, logo-header-80.webp 2x" 
-               width="40" height="40" 
-               decoding="async" />
-          <img class="logo-dark"  
-               alt="ARm Laboral logo (dark)" 
-               src="logo-header-dark-40.webp" 
-               srcset="logo-header-dark-40.webp 1x, logo-header-dark-80.webp 2x" 
-               width="40" height="40" 
-               decoding="async" />
+          <img class="logo-white" alt="ARm Laboral logo" src="logo-header-40.webp" srcset="logo-header-40.webp 1x, logo-header-80.webp 2x" width="40" height="40" decoding="async" />
+          <img class="logo-dark" alt="ARm Laboral logo (dark)" src="logo-header-dark-40.webp" srcset="logo-header-dark-40.webp 1x, logo-header-dark-80.webp 2x" width="40" height="40" decoding="async" />
         </div>
         <div>ARm Laboral</div>
       </a>
@@ -60,7 +49,7 @@
         </ul>
       </div>
       <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </nav>
   </header>
@@ -84,23 +73,22 @@
       </div>
     </section>
     
-    <!-- FIX: La sección de Misión y Visión estaba desalineada. He corregido el contenedor. -->
     <section>
-      <div class="container grid-2">
-        <div class="animate-on-scroll card">
-          <h2 class="title-accent">Misión</h2>
+      <div class="container grid-2 animate-on-scroll">
+        <div class="grid-text card">
+          <h2>Misión</h2>
           <p class="sub">Proteger a las empresas y startups Mexicanas con asesoría legal de alta precisión y ejecución rápida, traduciendo lo complejo a decisiones claras.</p>
         </div>
-        <div class="animate-on-scroll card">
-          <h2 class="title-accent">Visión</h2>
+        <div class="grid-media card">
+          <h2>Visión</h2>
           <p class="sub">Ser la referencia de consultoría laboral premium en México: cercana, eficiente y respaldada por resultados consistentes, entregando soluciones sólidas y estratégicas.</p>
         </div>
       </div>
     </section>
 
     <section class="cta-band" id="filosofia">
-      <div class="container grid-2 animate-on-scroll">
-        <div class="section-head-left">
+      <div class="container grid-2 reverse-on-desktop animate-on-scroll">
+        <div class="grid-text">
           <h2 class="title-accent">Nuestra filosofía</h2>
           <p class="sub">Menos palabras, más estrategia que se sostiene en juicio. Operamos con precisión y respeto por tu tiempo. Cada documento está diseñado para defender tu negocio hoy y mañana.</p>
           <div class="actions" style="margin-top: 20px;">
@@ -108,123 +96,52 @@
             <span class="pill">Documentación sólida</span>
           </div>
         </div>
-        <div>
+        <div class="grid-media">
           <h2 class="title-accent">Valores que se notan</h2>
-          <!-- FIX: Se elimina la clase .card en los divs de valores para evitar estilos duplicados y conflictos de layout. -->
           <div class="vals">
-            <div class="val">
-              <strong>Transparencia</strong><span class="sub">Claridad total desde el inicio.</span>
-            </div>
-            <div class="val">
-              <strong>Excelencia</strong><span class="sub">Ejecución con estándares de litigio.</span>
-            </div>
-            <div class="val">
-              <strong>Prevención</strong><span class="sub">Nos anticipamos para que tú no tengas que reaccionar.</span>
-            </div>
-            <div class="val">
-              <strong>Cercanía</strong><span class="sub">Trato directo, sin capas ni robots.</span>
-            </div>
-            <div class="val">
-              <strong>Integridad</strong><span class="sub">Ética y criterio en cada decisión.</span>
-            </div>
-            <div class="val">
-              <strong>Innovación</strong><span class="sub">Métodos modernos, sin fricción.</span>
-            </div>
+            <!-- FIX: Estructura HTML corregida para las tarjetas de valores -->
+            <div class="val card"><h3>Transparencia</h3><p>Claridad total desde el inicio.</p></div>
+            <div class="val card"><h3>Excelencia</h3><p>Ejecución con estándares de litigio.</p></div>
+            <div class="val card"><h3>Prevención</h3><p>Nos anticipamos para que tú no tengas que reaccionar.</p></div>
+            <div class="val card"><h3>Cercanía</h3><p>Trato directo, sin capas ni robots.</p></div>
+            <div class="val card"><h3>Integridad</h3><p>Ética y criterio en cada decisión.</p></div>
+            <div class="val card"><h3>Innovación</h3><p>Métodos modernos, sin fricción.</p></div>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- FIX: Se añade la clase .zigzag y .reverse-grid a la sección de equipo para aplicar el patrón correcto. -->
-    <section id="equipo" class="container grid-2 zigzag reverse-grid animate-on-scroll">
-      <div class="equipo-media">
-        <img src="nosotros-page-q40.webp" 
-             srcset="nosotros-page-q40.webp 400w, 
-                     nosotros-page-q60.webp 800w, 
-                     nosotros-page-q80.webp 1200w"
-             sizes="(max-width: 900px) 100vw, 50vw"
-             alt="El equipo de ARm Laboral en una reunión estratégica." 
-             class="team-image"
-             width="1200" height="1200"
-             loading="lazy" decoding="async">
-      </div>
-      <div class="section-head-right">
-        <h2 class="title-accent">Conoce al equipo</h2>
-        <p>
-          Somos un equipo de abogados dedicados a la estrategia y la prevención. 
-          Creemos en el derecho como una herramienta para construir y proteger, 
-          no solo para reaccionar. Nuestra experiencia se traduce en tranquilidad para tu empresa.
-        </p>
-        <p>
-          Compartimos nuestro conocimiento y análisis sobre el panorama legal empresarial 
-          en nuestro blog. Un recurso para líderes que toman decisiones informadas.
-        </p>
-        <div class="actions">
-          <a href="https://armlaboral.blogspot.com/" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="btn primary">
-            Visitar Blog
-          </a>
+    <section id="equipo">
+      <div class="container grid-2 animate-on-scroll">
+        <div class="grid-text section-head-right">
+          <h2 class="title-accent">Conoce al equipo</h2>
+          <p>Somos un equipo de abogados dedicados a la estrategia y la prevención. Creemos en el derecho como una herramienta para construir y proteger, no solo para reaccionar. Nuestra experiencia se traduce en tranquilidad para tu empresa.</p>
+          <p>Compartimos nuestro conocimiento y análisis sobre el panorama legal empresarial en nuestro blog. Un recurso para líderes que toman decisiones informadas.</p>
+          <div class="actions">
+            <a href="https://armlaboral.blogspot.com/" target="_blank" rel="noopener noreferrer" class="btn primary">Visitar Blog</a>
+          </div>
+        </div>
+        <div class="grid-media equipo-media">
+          <img src="nosotros-page-q40.webp" srcset="nosotros-page-q40.webp 400w, nosotros-page-q60.webp 800w, nosotros-page-q80.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" alt="El equipo de ARm Laboral en una reunión estratégica." width="1200" height="1200" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
     
-    <!-- FIX: Se añade la clase .zigzag a la sección de testimonios para aplicar el patrón. -->
     <section id="testimonios" class="cta-band">
-      <div class="container grid-2 zigzag animate-on-scroll">
-        
-        <div class="section-head-left">
+      <div class="container grid-2 reverse-on-desktop animate-on-scroll">
+        <div class="grid-text section-head-left">
           <h2 class="title-accent">La voz de nuestros clientes</h2>
-          <p class="sub">
-            La confianza se construye con resultados. Esto es lo que dicen las empresas que hemos tenido el privilegio de proteger.
-          </p>
+          <p class="sub">La confianza se construye con resultados. Esto es lo que dicen las empresas que hemos tenido el privilegio de proteger.</p>
         </div>
-
-        <div class="testimonials-stack">
-          
+        <div class="grid-media testimonials-stack">
           <article class="card testimonial-card">
-            <div class="testimonial-preview">
-              <cite class="testimonial-author">
-                <strong>BUk1 Arquitectos</strong><br>
-                Perla & Juan Carlos
-              </cite>
-              <p class="testimonial-intro">
-                “Necesitábamos contratos claros y a la medida…”
-              </p>
-            </div>
-            <div class="testimonial-full">
-              <blockquote class="testimonial-text">
-                “Como despacho de arquitectura, necesitábamos contratos claros y a la medida para nuestro equipo administrativo, además de una cláusula de confidencialidad que protegiera nuestro trabajo creativo. ARm Laboral nos dio documentos impecables y sobre todo tranquilidad: ahora sabemos que nuestro crecimiento está respaldado jurídicamente.”
-              </blockquote>
-              <cite class="testimonial-author">
-                <strong>BUk1 Arquitectos</strong><br>
-                Perla & Juan Carlos
-              </cite>
-            </div>
+            <div class="testimonial-preview"><cite class="testimonial-author"><strong>BUk1 Arquitectos</strong><br>Perla & Juan Carlos</cite><p class="testimonial-intro">“Necesitábamos contratos claros y a la medida…”</p></div>
+            <div class="testimonial-full"><blockquote class="testimonial-text">“Como despacho de arquitectura, necesitábamos contratos claros y a la medida para nuestro equipo administrativo, además de una cláusula de confidencialidad que protegiera nuestro trabajo creativo. ARm Laboral nos dio documentos impecables y sobre todo tranquilidad: ahora sabemos que nuestro crecimiento está respaldado jurídicamente.”</blockquote><cite class="testimonial-author"><strong>BUk1 Arquitectos</strong><br>Perla & Juan Carlos</cite></div>
           </article>
-
           <article class="card testimonial-card">
-            <div class="testimonial-preview">
-              <cite class="testimonial-author">
-                <strong>Fumigaciones y Antitermita Maldonado</strong><br>
-                Sr. Sergio Maldonado Ibarra
-              </cite>
-              <p class="testimonial-intro">
-                “Tuve que cerrar la relación laboral con dos trabajadores…”
-              </p>
-            </div>
-            <div class="testimonial-full">
-              <blockquote class="testimonial-text">
-                “Tuve que cerrar la relación laboral con dos trabajadores y no quería problemas legales. ARm Laboral preparó todo el cálculo y la documentación del finiquito. Se firmó sin conflictos y, lo mejor, mis exempleados se fueron conformes. Eso me permitió seguir con mi negocio sin pendientes.”
-              </blockquote>
-              <cite class="testimonial-author">
-                <strong>Fumigaciones y Antitermita Maldonado</strong><br>
-                Sr. Sergio Maldonado Ibarra
-              </cite>
-            </div>
+            <div class="testimonial-preview"><cite class="testimonial-author"><strong>Fumigaciones y Antitermita Maldonado</strong><br>Sr. Sergio Maldonado Ibarra</cite><p class="testimonial-intro">“Tuve que cerrar la relación laboral con dos trabajadores…”</p></div>
+            <div class="testimonial-full"><blockquote class="testimonial-text">“Tuve que cerrar la relación laboral con dos trabajadores y no quería problemas legales. ARm Laboral preparó todo el cálculo y la documentación del finiquito. Se firmó sin conflictos y, lo mejor, mis exempleados se fueron conformes. Eso me permitió seguir con mi negocio sin pendientes.”</blockquote><cite class="testimonial-author"><strong>Fumigaciones y Antitermita Maldonado</strong><br>Sr. Sergio Maldonado Ibarra</cite></div>
           </article>
-
         </div>
       </div>
     </section>
@@ -242,32 +159,17 @@
   </main>
 
   <footer>
-    <!-- FIX: He unificado el footer para que sea consistente en todas las páginas. -->
     <div class="container foot footer-grid">
-      
-      <!-- Columna 1, fila 1 -->
       <div class="footer-left">
         <a href="index.html" class="brand" aria-label="Inicio ARm Laboral">
           <span class="logo-container" aria-hidden="true">
-            <img class="logo-white"
-                 alt="ARm Laboral logo"
-                 src="logo-header-40.webp"
-                 srcset="logo-header-40.webp 1x, logo-header-80.webp 2x"
-                 width="40" height="40"
-                 decoding="async" />
-            <img class="logo-dark"
-                 alt="ARm Laboral logo (dark)"
-                 src="logo-header-dark-40.webp"
-                 srcset="logo-header-dark-40.webp 1x, logo-header-dark-80.webp 2x"
-                 width="40" height="40"
-                 decoding="async" />
+            <img class="logo-white" alt="ARm Laboral logo" src="logo-header-40.webp" srcset="logo-header-40.webp 1x, logo-header-80.webp 2x" width="40" height="40" decoding="async" />
+            <img class="logo-dark" alt="ARm Laboral logo (dark)" src="logo-header-dark-40.webp" srcset="logo-header-dark-40.webp 1x, logo-header-dark-80.webp 2x" width="40" height="40" decoding="async" />
           </span>
           <span>ARm Laboral</span>
         </a>
         <p class="sub">Asesoría y defensa laboral para empresas. Modelo por Tokens — claridad y eficiencia.</p>
       </div>
-
-      <!-- Columna 2, fila 1 -->
       <div class="footer-right">
         <address>
           <div><strong>Monterrey, N.L. — México</strong></div>
@@ -275,44 +177,24 @@
           <div><a href="aviso-de-privacidad.html">Aviso de privacidad</a></div>
         </address>
       </div>
-
-      <!-- Columna 1, fila 2 -->
       <div class="footer-credits">
         © 2025 ARm Laboral. Todos los derechos reservados.
       </div>
-
-      <!-- Columna 2, fila 2 -->
       <div class="footer-social">
         <p class="social-text">Síguenos en nuestras redes sociales:</p>
         <div class="social-icons">
-          <a href="https://www.facebook.com/armlaboral" target="_blank" rel="noopener" aria-label="Facebook ARm Laboral">
-            <img src="facebook_40.webp" srcset="facebook_40.webp 1x, facebook_80.webp 2x" alt="Facebook ARm Laboral" width="24" height="24">
-          </a>
-          <a href="https://www.instagram.com/armlaboral" target="_blank" rel="noopener" aria-label="Instagram ARm Laboral">
-            <img src="instagram_40.webp" srcset="instagram_40.webp 1x, instagram_80.webp 2x" alt="Instagram ARm Laboral" width="24" height="24">
-          </a>
-          <a href="https://www.linkedin.com/company/arm-laboral" target="_blank" rel="noopener" aria-label="LinkedIn ARm Laboral">
-            <img src="https://cdn-icons-png.flaticon.com/24/145/145807.png" alt="LinkedIn ARm Laboral" width="24" height="24">
-          </a>
+          <a href="https://www.facebook.com/armlaboral" target="_blank" rel="noopener" aria-label="Facebook ARm Laboral"><img src="facebook_40.webp" srcset="facebook_40.webp 1x, facebook_80.webp 2x" alt="Facebook ARm Laboral" width="24" height="24"></a>
+          <a href="https://www.instagram.com/armlaboral" target="_blank" rel="noopener" aria-label="Instagram ARm Laboral"><img src="instagram_40.webp" srcset="instagram_40.webp 1x, instagram_80.webp 2x" alt="Instagram ARm Laboral" width="24" height="24"></a>
+          <a href="https://www.linkedin.com/company/arm-laboral" target="_blank" rel="noopener" aria-label="LinkedIn ARm Laboral"><img src="https://cdn-icons-png.flaticon.com/24/145/145807.png" alt="LinkedIn ARm Laboral" width="24" height="24"></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- FIX: He movido el botón y popup de WhatsApp fuera de un div con la clase 'float-contacto' para que puedan ser estilizados por separado si es necesario. -->
-  <!-- ✅ Botón WhatsApp flotante -->
   <div class="whatsapp-fab" id="whatsapp-fab">
-    <img 
-      src="whatsapp_40.webp" 
-      srcset="whatsapp_40.webp 1x, whatsapp_80.webp 2x" 
-      alt="WhatsApp" 
-      width="34" height="34" 
-      decoding="async" 
-      loading="lazy" />
+    <img src="whatsapp_40.webp" srcset="whatsapp_40.webp 1x, whatsapp_80.webp 2x" alt="WhatsApp" width="34" height="34" decoding="async" loading="lazy" />
     <span class="fab-badge">1</span>
   </div>
-
-  <!-- ✅ Pop-up WhatsApp -->
   <div class="whatsapp-popup" id="whatsapp-popup">
     <p>¿Hablamos por WhatsApp?</p>
     <a class="btn primary" href="https://wa.me/528123682595?text=Hola%20ARm%20Laboral" target="_blank">Abrir chat</a>
