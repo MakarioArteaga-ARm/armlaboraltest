@@ -1,97 +1,190 @@
 /*
  * desktop.css: Estilos para pantallas de escritorio (ancho > 900px).
- *
- * Este archivo contiene todas las reglas de layout y efectos que solo aplican
- * a pantallas grandes. La clave es usar `grid-template-areas` para el
- * diseño en zig-zag y los efectos de `hover` para los testimonios.
+ * Versión refactorizada con sistema de grid universal y robusto.
 */
 
 @media (min-width: 901px) {
-    /* Hero Section */
-    .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr;
-    }
-    
-    /* Layouts principales */
-    .grid-2,
-    .reverse-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: center;
-    }
-    
-    /* Mapeo de áreas para el patrón zig-zag */
-    .grid-2.zigzag > :nth-child(1)      { grid-area: text; }
-    .grid-2.zigzag > :nth-child(2)      { grid-area: media; }
-    
-    .reverse-grid.zigzag > :nth-child(1){ grid-area: media; }
-    .reverse-grid.zigzag > :nth-child(2){ grid-area: text; }
 
-    /* FIX: Centrar la imagen en la sección del equipo */
-    .equipo-media {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .equipo-media img {
-        max-width: 90%;   /* limita la imagen dentro de su columna */
-        height: auto;
-        object-fit: cover;
-        border-radius: 12px; /* opcional */
-    }
+  /* ===================================
+     SISTEMA DE GRID UNIVERSAL (ZIG-ZAG)
+     =================================== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    /* Blueprint por defecto: Texto a la izquierda, Media a la derecha */
+    grid-template-areas: "text media";
+  }
 
-    /* Grid para las tarjetas de soluciones */
-    .solutions-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(240px, 1fr));
-        gap: 24px;
-        align-items: stretch;
-        align-content: start;
-    }
+  /* Asigna cada bloque a su área correspondiente */
+  .grid-text {
+    grid-area: text;
+  }
 
-    /* Alineación de texto en encabezados de sección */
-    .section-head-left {
-        text-align: left;
-    }
-    .section-head-right {
-        text-align: right;
-    }
-    .section-head-right .actions {
-        justify-content: flex-end;
-    }
+  .grid-media {
+    grid-area: media;
+  }
 
-    /* Estilos de las tarjetas para la página de nosotros */
-    #nosotros .grid-2 .card {
-        min-height: 250px;
-    }
-    
-    .card h3 {
-        font-size: 1.4rem;
-        line-height: 1.4;
-    }
+  /* La magia: Si el contenedor tiene esta clase, invierte el blueprint */
+  .grid-2.reverse-on-desktop {
+    grid-template-areas: "media text";
+  }
 
-    /* FIX: Restauración de los efectos de hover de los testimonios */
-    .testimonial-card:hover {
-        transform: scale(1.03);
-        z-index: 10;
-    }
 
-    .testimonial-card:hover .testimonial-preview {
-        opacity: 0;
-        visibility: hidden;
-        height: 0;
-    }
+  /* =========================
+     HERO
+  ========================== */
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
 
-    .testimonial-card:hover .testimonial-full {
-        opacity: 1;
-        visibility: visible;
-        height: auto;
-    }
 
-    .testimonials-stack:hover .testimonial-card:not(:hover) {
-        filter: blur(2px) brightness(0.9);
-        transform: scale(0.98);
-    }
+  /* =========================
+     ESTILOS COMPLEMENTARIOS
+  ========================== */
+  .section-head-left,
+  .section-head-right {
+    text-align: left; /* Asegura alineación a la izquierda dentro del grid */
+  }
+
+  .section-head-right .actions {
+    justify-content: flex-start;
+  }
+
+  .equipo-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .equipo-media img {
+    max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .card h3 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+
+  /* =========================
+     TESTIMONIOS
+  ========================== */
+  .testimonials-stack {
+    position: relative;
+    display: grid;
+    gap: 16px;
+  }
+
+  .testimonial-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s;
+    overflow: hidden;
+    min-height: 180px;
+  }
+
+  .testimonial-preview {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+
+  .testimonial-full {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .testimonial-card:hover .testimonial-preview {
+    display: none;
+  }
+
+  .testimonial-card:hover .testimonial-full {
+    display: block;
+    opacity: 1;
+  }
+
+  .testimonials-stack:hover .testimonial-card:not(:hover) {
+    filter: blur(2px) brightness(0.9);
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  
+  /* =========================
+     FOOTER GRID
+  ========================== */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .footer-left {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+  }
+
+  .footer-right {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  .footer-credits {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    text-align: left;
+  }
+
+  .footer-social {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    text-align: right;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .social-icons a:hover img {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
 }
