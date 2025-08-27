@@ -1,3 +1,7 @@
+/*
+ * base.css: Estilos globales y universales para todo el sitio.
+*/
+
 :root {
     --primary-dark: #0D47A1;
     --primary-dynamic: #1976D2;
@@ -307,9 +311,10 @@ footer .brand .logo-dark {
     margin-bottom: 10px;
 }
 
+/* === CORRECCIÓN: Regla de color específica para el texto del hero === */
 .glass-text {
-    color: rgb(255 255 255 / .75);
-    text-shadow: 0 2px 4px rgb(0 0 0 / .25), inset 0 1px 2px rgb(255 255 255 / .3);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-card,
@@ -408,21 +413,11 @@ section {
     text-align: right;
 }
 
-section#soluciones .section-head h2 {
-    background: linear-gradient(90deg, var(--primary-dark), var(--primary-dynamic));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #fff0;
-}
-
 .sub {
     color: var(--ink);
     font-size: 16px;
     max-width: 60ch;
     line-height: 1.6;
-}
-
-section#soluciones .section-head .sub {
-    margin-bottom: 1.5rem;
 }
 
 .center .sub {
@@ -483,22 +478,6 @@ section#soluciones .section-head .sub {
 .val:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: var(--ring-hover);
-}
-
-.val strong {
-    display: block;
-    margin-bottom: 6px;
-    background: linear-gradient(90deg, var(--primary-dynamic), var(--celeste-vibrante));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #fff0;
-    font-weight: 700;
-    transition: all 0.3s ease;
-}
-
-.val:hover strong {
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: var(--primary-dark);
 }
 
 .val .sub {
@@ -664,40 +643,68 @@ textarea.input {
     transform: translateY(0);
 }
 
-.float-contacto {
+.whatsapp-fab {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    width: 64px;
+    height: 64px;
     background: #25D366;
-    color: #fff;
-    width: 60px;
-    height: 60px;
     border-radius: 50%;
-    z-index: var(--z-fab);
-    box-shadow: 0 4px 15px rgb(0 0 0 / .3);
-    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    cursor: pointer;
+    z-index: var(--z-fab);
     animation: pulse 2s infinite;
 }
-
-.float-contacto:hover {
-    transform: scale(1.1);
-    animation-play-state: paused;
+.whatsapp-fab img {
+    width: 34px;
+    height: 34px;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgb(37 211 102 / .7);
-    }
+.fab-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: red;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: show-badge 0.6s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 0 2px #fff;
+}
+@keyframes show-badge {
+    to { opacity: 1; }
+}
 
-    70% {
-        box-shadow: 0 0 0 15px #fff0;
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 #fff0;
-    }
+.whatsapp-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    display: none;
+    z-index: var(--z-fab);
+}
+.whatsapp-popup p {
+    margin: 0 0 10px;
+    font-size: 14px;
 }
