@@ -149,11 +149,9 @@
   .footer-left { text-align: left; }
   .footer-right { text-align: right; }
 
-  .social-icons {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
-  }
+.footer-left .social-icons {
+  justify-content: flex-start; /* Le decimos que se alinee a la izquierda */
+}
 
   .social-icons img {
     width: 28px;
