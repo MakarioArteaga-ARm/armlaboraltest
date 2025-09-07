@@ -327,7 +327,8 @@ footer .brand .logo-dark {
 .hero-card,
 .card,
 .cta-band,
-.val {
+.val,
+.faq-accordion details {
     background: rgb(255 255 255 / .65);
     backdrop-filter: blur(12px);
     border: 2px solid rgb(255 255 255 / .35);
@@ -407,7 +408,6 @@ section {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 40px;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -455,7 +455,8 @@ section {
 .card h4,
 .val h3,
 .hero-card strong,
-.testimonial-card strong {
+.testimonial-card strong,
+.faq-accordion summary {
     background: linear-gradient(90deg, var(--primary-dynamic), var(--celeste-vibrante));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -727,4 +728,3 @@ textarea.input {
     margin: 0 0 10px;
     font-size: 14px;
 }
-
