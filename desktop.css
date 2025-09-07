@@ -176,4 +176,41 @@
 .faq-accordion summary::-webkit-details-marker { display: none; }
 .faq-accordion summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; transition: transform 0.3s ease; }
 .faq-accordion details[open] summary::after { transform: rotate(45deg); }
-.faq-answer { padding: 0 1.5rem 1.5rem; line-height: 1.6; }
+.faq-answer { padding: 0 1.5rem 1.5rem; line-height: 1.6; 
+  }
+}
+
+/* Estilos para la página de FAQs */
+.faq-index {
+  list-style: none;
+  padding: 0 0 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(13, 71, 161, 0.1);
+  display: flex;
+  gap: 1.5rem;
+}
+.faq-index a {
+  color: var(--primary-dynamic);
+  font-weight: 600;
+  text-decoration: none;
+}
+.faq-index a:hover {
+  color: var(--primary-dark);
+}
+.faq-category {
+  margin-top: 2rem;
+}
+.faq-category:first-of-type {
+  margin-top: 0;
+}
+.faq-category h2 {
+  border-bottom: 2px solid var(--primary-dark);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.faq-category strong {
+  display: block;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+}
