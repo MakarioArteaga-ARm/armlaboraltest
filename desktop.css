@@ -150,6 +150,8 @@
   .footer-right { text-align: right; }
 
 .footer-left .social-icons {
+  display: flex; /* La línea que faltaba */
+  gap: 12px;
   justify-content: flex-start; /* Le decimos que se alinee a la izquierda */
 }
 
