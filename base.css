@@ -492,6 +492,9 @@ section {
 .val {
     padding: 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ✅ LÍNEAS AÑADIDAS PARA LA SOLUCIÓN */
+    display: flex; 
+    flex-direction: column;
 }
 
 .val h3 {
@@ -724,3 +727,4 @@ textarea.input {
     margin: 0 0 10px;
     font-size: 14px;
 }
+
