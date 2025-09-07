@@ -15,7 +15,6 @@
     }
 
     /* --- ESTRUCTURA Y LAYOUT --- */
-    /* Apilado vertical para todos los contenedores principales */
     .hero-inner,
     .grid-2,
     .foot,
@@ -59,15 +58,21 @@
         display: none;
     }
     
-    /* Centra el texto en las secciones de grid que quedan abajo */
     .grid-2 > .grid-text {
         text-align: center;
-        margin-bottom: 30px; /* Espacio entre texto y media al apilarse */
+        margin-bottom: 30px; 
     }
 
     .grid-2 > .grid-text .actions {
-        justify-content: center; /* Centra también los botones dentro */
+        justify-content: center;
     }
+
+    /* ========= LA MODIFICACIÓN ESTÁ AQUÍ ========= */
+    /* Heurística para centrar tarjetas apiladas (Misión/Visión) */
+    .cards-stack-centered > .card {
+        text-align: center;
+    }
+    /* ============================================= */
 
 
     /* --- FORMULARIO DE CONTACTO --- */
@@ -85,15 +90,16 @@
         padding: 40px 0;
     }
 
-    .footer-left .brand,
-    .social-icons {
+    .footer-left .brand {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+    
+    .footer-left .social-icons {
         justify-content: center;
     }
-
-    .footer-right,
-    .footer-social,
-    .footer-credits {
-        text-align: center;
+    .footer-right {
         margin-top: 30px;
     }
 
