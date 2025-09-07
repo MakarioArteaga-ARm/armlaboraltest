@@ -214,3 +214,23 @@
   font-weight: 700;
   color: var(--ink);
 }
+
+/* =========================
+   ESTILOS ADICIONALES FOOTER
+========================== */
+.footer-social {
+  margin-top: 15px;
+}
+.footer-social p {
+  margin-bottom: 8px;
+  color: var(--muted); /* Un color más suave para el texto */
+  font-size: 15px;
+}
+.footer-links {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end; /* Alinea los enlaces a la derecha */
+}
+.footer-credits {
+  margin-top: 15px;
+}
