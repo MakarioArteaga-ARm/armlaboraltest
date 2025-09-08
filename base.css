@@ -37,8 +37,7 @@
         backdrop-filter: none;
         box-shadow: 0 2px 6px rgb(0 0 0 / .08);
     }
-}
-
+}    
 *,
 *::before,
 *::after {
@@ -51,13 +50,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* === SOLUCIÓN SISTÉMICA PARA IMÁGENES RESPONSIVAS === */
 img, video {
     max-width: 100%;
     height: auto;
-    display: block; /* Previene espacios extra debajo de las imágenes */
+    display: block; 
 }
-
 
 body {
     font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -493,7 +490,6 @@ section {
 .val {
     padding: 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* ✅ LÍNEAS AÑADIDAS PARA LA SOLUCIÓN */
     display: flex; 
     flex-direction: column;
 }
@@ -683,6 +679,7 @@ textarea.input {
     width: 34px;
     height: 34px;
 }
+    
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(37,211,102,.7); }
     70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
@@ -727,4 +724,38 @@ textarea.input {
 .whatsapp-popup p {
     margin: 0 0 10px;
     font-size: 14px;
+}
+
+/* =================================================================
+   ESTILOS BASE PARA EL COMPONENTE ACORDEÓN (GLOBAL)
+   Ahora vive aquí para que funcione en mobile y desktop (soluciones.html y faqs.html)
+   ================================================================= */
+.faq-accordion { display: flex; flex-direction: column; gap: 1rem; }
+.faq-accordion details:hover { transform: scale(1.02); box-shadow: var(--ring-hover); }
+.faq-accordion summary { padding: 1rem 1.5rem; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-accordion summary::-webkit-details-marker { display: none; }
+.faq-accordion summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; transition: transform 0.3s ease; }
+.faq-accordion details[open] summary::after { transform: rotate(45deg); }
+.faq-answer { padding: 0 1.5rem 1.5rem; line-height: 1.6; }
+
+/* =================================================================
+   NUEVOS ESTILOS PARA LA PÁGINA FAQS (SOLUCIÓN LIMPIA)
+   ================================================================= */
+.faq-body {
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+
+.faq-welcome-text {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.faq-welcome-text p {
+    font-size: 1.1rem;
+    color: var(--ink);
+    max-width: 80ch;
+}
+
+.faq-content {
+    padding: 40px 1.5rem 1.5rem 1.5rem;
 }
