@@ -759,3 +759,268 @@ textarea.input {
 .faq-content {
     padding: 40px 1.5rem 1.5rem 1.5rem;
 }
+
+/* =================================================================
+   NUEVOS ESTILOS PARA EL BLOG (AÑADIR AL FINAL DE BASE.CSS)
+   ================================================================= */
+
+/* --- Página principal del Blog (blog.html) --- */
+.blog-feed {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+}
+
+.post-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--ring);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ring-hover);
+}
+
+.post-card-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.post-card-content {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.post-card-category {
+    color: var(--primary-dynamic);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.post-card-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+}
+
+.post-card-title a {
+    text-decoration: none;
+    color: var(--primary-dark);
+}
+
+.post-card-excerpt {
+    color: var(--muted);
+    flex-grow: 1;
+    margin-bottom: var(--space-4);
+}
+
+.post-card.featured {
+    display: grid;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.post-card.featured .post-card-image img {
+    height: 400px;
+    border-radius: var(--radius);
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+@media (min-width: 901px) {
+    .post-card.featured {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Artículo Individual (post-layout) --- */
+.post-layout .post-header {
+    padding: 120px 0 40px;
+    background: var(--primary-dark);
+    color: #fff;
+    text-align: center;
+}
+
+.post-breadcrumb {
+    color: var(--celeste-vibrante);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.post-layout .post-header h1 {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.post-meta {
+    color: rgba(255,255,255,0.8);
+    margin-top: 10px;
+}
+
+.post-main-image {
+    margin: -50px auto 40px;
+    max-width: 900px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--ring-hover);
+    position: relative;
+    z-index: 10;
+}
+
+.post-main-image figcaption {
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.post-content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+@media (min-width: 901px) {
+    .post-content-container {
+        grid-template-columns: 2.5fr 1fr;
+    }
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-content h2, .post-content h3 {
+    color: var(--primary-dark);
+    margin: 40px 0 15px;
+}
+
+.post-content ul, .post-content ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.post-cta {
+    background: var(--bg-light);
+    border: 1px solid rgba(13, 71, 161, 0.1);
+    border-left: 4px solid var(--primary-dynamic);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.sidebar-widget {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+}
+
+.sidebar-widget h4 {
+    color: var(--primary-dark);
+}
+
+/* --- Ficha de Autor --- */
+.author-box {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .author-box {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.author-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.author-title {
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.author-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.author-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .author-credentials {
+        align-items: flex-start;
+    }
+}
+
+.author-credentials span {
+    background: #eef6ff;
+    color: var(--primary-dark);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.author-links a {
+    color: var(--primary-dynamic);
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.arml-lead { /* Clase auxiliar para párrafos introductorios */
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 400;
+}
