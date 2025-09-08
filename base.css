@@ -342,7 +342,7 @@ footer .brand .logo-dark {
     list-style: none;
     padding: 0;
     margin: 10px 0 0;
-    color: var(--muted);
+    color: var(--ink);
 }
 
 .hero-list li {
