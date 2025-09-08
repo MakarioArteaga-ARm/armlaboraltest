@@ -22,9 +22,15 @@
         display: block;
     }
 
-    /* --- HERO SECTION --- */
+    /* =======================================================
+       LA CORRECCIÓN FINAL ESTÁ AQUÍ
+       Incrementamos el padding inferior de 50px a 100px.
+       Esto le da al hero más "aire" en la parte de abajo,
+       creando el espacio necesario para que la tarjeta
+       que sube no se vea pegada a los botones.
+       ======================================================= */
     .hero {
-        padding: 120px 0 80px;
+        padding: 120px 0 100px;
     }
 
     .hero-inner {
@@ -67,15 +73,10 @@
         justify-content: center;
     }
 
-    /* ========= LA MODIFICACIÓN ESTÁ AQUÍ ========= */
-    /* Heurística para centrar tarjetas apiladas (Misión/Visión) */
     .cards-stack-centered > .card {
         text-align: center;
     }
-    /* ============================================= */
 
-
-    /* --- FORMULARIO DE CONTACTO --- */
     .form .row > div {
         margin-bottom: 16px;
     }
@@ -83,6 +84,14 @@
     .form .actions {
         justify-content: center;
     }
+
+    /* =======================================================
+       REGLA PARA ESPACIADO EN PÁGINA DE FAQS
+       ======================================================= */
+    .faq-page-container h2 {
+        margin-top: 2.5rem; /* Añade más espacio arriba de cada título de categoría */
+    }
+
 
     /* --- FOOTER (PIE DE PÁGINA) --- */
     .foot {
@@ -97,7 +106,9 @@
     }
     
     .footer-left .social-icons {
+        display: flex;
         justify-content: center;
+        gap: 16px;
     }
     .footer-right {
         margin-top: 30px;
