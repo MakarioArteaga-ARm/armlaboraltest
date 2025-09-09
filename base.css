@@ -761,19 +761,21 @@ textarea.input {
 }
 
 /* =================================================================
-   NUEVOS ESTILOS PARA EL BLOG (AÑADIR AL FINAL DE BASE.CSS)
+   NUEVOS ESTILOS PARA EL BLOG (VERSIÓN 3 - UNIFICADA)
    ================================================================= */
 
 /* --- Página principal del Blog (blog.html) --- */
 .blog-feed {
     padding: 60px 0;
-    background-color: #FFFFFF;
+    background-color: transparent; 
 }
 
 .post-card {
-    background: var(--card);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 2px 6px rgba(255, 255, 255, 0.3);
     border-radius: var(--radius);
-    box-shadow: var(--ring);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -783,6 +785,10 @@ textarea.input {
 .post-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--ring-hover);
+}
+
+.post-card-image {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.35);
 }
 
 .post-card-image img {
@@ -799,9 +805,9 @@ textarea.input {
 }
 
 .post-card-category {
-    color: var(--primary-dynamic);
+    color: var(--primary-dark);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: var(--space-1);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -814,11 +820,14 @@ textarea.input {
 
 .post-card-title a {
     text-decoration: none;
-    color: var(--primary-dark);
+    background: linear-gradient(90deg, var(--primary-dynamic), var(--celeste-vibrante));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 
 .post-card-excerpt {
-    color: var(--muted);
+    color: var(--ink);
     flex-grow: 1;
     margin-bottom: var(--space-4);
 }
@@ -841,121 +850,119 @@ textarea.input {
     gap: 40px;
 }
 
-@media (min-width: 901px) {
-    .post-card.featured {
-        grid-template-columns: 1fr 1fr;
-    }
-}
+/* --- Página de Artículo Individual (post.html) --- */
 
-/* --- Artículo Individual (post-layout) --- */
-.post-layout .post-header {
-    padding: 120px 0 40px;
-    background: var(--primary-dark);
-    color: #fff;
-    text-align: center;
-}
+/* CORRECCIÓN: Se elimina .post-header y se usan los estilos de .hero existentes */
 
 .post-breadcrumb {
-    color: var(--celeste-vibrante);
-    text-decoration: none;
-    font-weight: 600;
     display: inline-block;
-    margin-bottom: 20px;
-}
-
-.post-layout .post-header h1 {
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    background: rgba(0,0,0,0.2);
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-size: 14px;
+    transition: background .3s ease;
+}
+.post-breadcrumb:hover {
+    background: rgba(0,0,0,0.4);
 }
 
 .post-meta {
     color: rgba(255,255,255,0.8);
-    margin-top: 10px;
+    font-weight: 600;
+    margin-top: 1rem;
 }
 
-.post-main-image {
-    margin: -50px auto 40px;
-    max-width: 900px;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--ring-hover);
-    position: relative;
-    z-index: 10;
+.post-body {
+    padding: 60px 0;
+    background: #fff; /* Fondo blanco para el contenido del artículo para máxima legibilidad */
 }
 
-.post-main-image figcaption {
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.post-content-container {
+.post-grid-layout {
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 20px 0;
 }
 
-@media (min-width: 901px) {
-    .post-content-container {
-        grid-template-columns: 2.5fr 1fr;
-    }
+.post-main-image {
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+.post-main-image figcaption {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+    background: #f8f9fa;
 }
 
-.post-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.post-content h2, .post-content h3 {
+.post-content h2 {
     color: var(--primary-dark);
-    margin: 40px 0 15px;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-.post-content ul, .post-content ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
+.post-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+.post-content ul li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+.post-content ul li::before {
+    content: '✓';
+    color: var(--celeste-vibrante);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
 }
 
 .post-cta {
     background: var(--bg-light);
-    border: 1px solid rgba(13, 71, 161, 0.1);
+    border: 1px solid #e0e0e0;
     border-left: 4px solid var(--primary-dynamic);
-    border-radius: var(--radius);
-    padding: 30px;
-    margin: 40px 0;
-    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+.post-cta h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
 }
 
 .sidebar-widget {
     background: var(--bg-light);
-    padding: 20px;
+    padding: 1.5rem;
     border-radius: var(--radius);
-    margin-bottom: 20px;
+    border: 1px solid #eee;
+    margin-bottom: 2rem;
 }
-
 .sidebar-widget h4 {
+    margin-top: 0;
     color: var(--primary-dark);
 }
 
-/* --- Ficha de Autor --- */
-.author-box {
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
+.author-box-container {
+    grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
 }
 
-@media (min-width: 768px) {
-    .author-box {
-        flex-direction: row;
-        text-align: left;
-    }
+.author-box {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
 }
 
 .author-photo {
@@ -963,64 +970,49 @@ textarea.input {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto;
-    flex-shrink: 0;
-}
-
-.author-info {
-    display: flex;
-    flex-direction: column;
+    border: 4px solid #fff;
+    box-shadow: var(--ring);
 }
 
 .author-name {
-    color: var(--primary-dark);
+    margin-top: 0;
     font-size: 1.5rem;
-    margin-bottom: 0;
+    color: var(--primary-dark);
 }
-
 .author-title {
+    font-weight: 700;
     color: var(--muted);
-    font-style: italic;
-    margin-bottom: 10px;
+    margin-top: -10px;
+    margin-bottom: 1rem;
 }
-
-.author-bio {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
 .author-credentials {
+    font-size: 14px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+.author-links a {
+    color: var(--primary-dark);
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 1rem;
 }
 
-@media (min-width: 768px) {
-    .author-credentials {
-        align-items: flex-start;
+/* --- Media Queries --- */
+@media (min-width: 901px) {
+    .post-card.featured {
+        grid-template-columns: 1fr 1fr;
+    }
+    .post-grid-layout {
+        grid-template-columns: 2.5fr 1fr;
     }
 }
 
-.author-credentials span {
-    background: #eef6ff;
-    color: var(--primary-dark);
-    padding: 4px 10px;
-    border-radius: 6px;
-}
-
-.author-links a {
-    color: var(--primary-dynamic);
-    font-weight: 600;
-    text-decoration: none;
-    margin-right: 15px;
-}
-
-.arml-lead { /* Clase auxiliar para párrafos introductorios */
-    font-size: 1.2rem;
-    color: #333;
-    font-weight: 400;
+@media (max-width: 900px) {
+    .author-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
