@@ -761,7 +761,7 @@ textarea.input {
 }
 
 /* =================================================================
-   NUEVOS ESTILOS PARA EL BLOG (VERSIÓN 3 - UNIFICADA)
+   ESTILOS PARA EL BLOG (VERSIÓN FINAL Y UNIFICADA)
    ================================================================= */
 
 /* --- Página principal del Blog (blog.html) --- */
@@ -850,10 +850,7 @@ textarea.input {
     gap: 40px;
 }
 
-/* --- Página de Artículo Individual (post.html) --- */
-
-/* CORRECCIÓN: Se elimina .post-header y se usan los estilos de .hero existentes */
-
+/* --- Página de Artículo Individual --- */
 .post-breadcrumb {
     display: inline-block;
     color: #fff;
@@ -878,8 +875,14 @@ textarea.input {
 
 .post-body {
     padding: 60px 0;
-    background: #fff; /* Fondo blanco para el contenido del artículo para máxima legibilidad */
+    /* CORRECCIÓN: El contenedor principal ahora es transparente */
+    background: transparent; 
 }
+/* Se usa la clase .card de forma nativa en el HTML para el contenido */
+.post-content.card { padding: 2rem; }
+.sidebar-widget.card { padding: 1.5rem; margin-bottom: 2rem; }
+.author-box.card { padding: 2rem; }
+
 
 .post-grid-layout {
     display: grid;
@@ -891,14 +894,14 @@ textarea.input {
     margin-bottom: 2rem;
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid #eee;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 .post-main-image figcaption {
     padding: 10px;
     text-align: center;
     font-size: 14px;
     color: var(--muted);
-    background: #f8f9fa;
+    background: rgba(0,0,0,0.03);
 }
 
 .post-content h2 {
@@ -937,29 +940,20 @@ textarea.input {
     color: var(--primary-dark);
 }
 
-.sidebar-widget {
-    background: var(--bg-light);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    border: 1px solid #eee;
-    margin-bottom: 2rem;
-}
 .sidebar-widget h4 {
     margin-top: 0;
     color: var(--primary-dark);
 }
+.sidebar-widget p { margin-bottom: 0; }
 
 .author-box-container {
-    grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+    grid-column: 1 / -1;
     padding-top: 2rem;
     margin-top: 2rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(255,255,255,0.3);
 }
 
 .author-box {
-    background: var(--bg-light);
-    padding: 2rem;
-    border-radius: var(--radius);
     display: flex;
     gap: 2rem;
     align-items: flex-start;
@@ -977,7 +971,10 @@ textarea.input {
 .author-name {
     margin-top: 0;
     font-size: 1.5rem;
-    color: var(--primary-dark);
+    background: linear-gradient(90deg, var(--primary-dynamic), var(--celeste-vibrante));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 .author-title {
     font-weight: 700;
@@ -999,6 +996,36 @@ textarea.input {
     margin-right: 1rem;
 }
 
+/* --- Footer Lite para el Blog --- */
+.footer-lite {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+.footer-lite .brand {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.footer-lite .footer-credits {
+    font-size: 14px;
+    color: var(--ink);
+}
+/* ======================================================= */
+/* LA MODIFICACIÓN ESTÁ AQUÍ                     */
+/* ======================================================= */
+.footer-lite .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 1rem;
+}
+.footer-lite .social-icons img {
+    opacity: 0.7;
+    transition: opacity .3s ease;
+}
+.footer-lite .social-icons a:hover img {
+    opacity: 1;
+}
 /* --- Media Queries --- */
 @media (min-width: 901px) {
     .post-card.featured {
@@ -1015,4 +1042,5 @@ textarea.input {
         align-items: center;
         text-align: center;
     }
+    .post-content.card { padding: 1.5rem; }
 }
