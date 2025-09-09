@@ -4,18 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <!-- SEO y Metadatos Esenciales -->
   <title>Guía de la Reforma Laboral 2025 para Empresas — ARm Laboral</title>
   <meta name="description" content="Guía práctica sobre la reforma laboral 2025 en México: lo esencial, riesgos, oportunidades y checklist de implementación para tu empresa.">
   <link rel="canonical" href="https://armlaboral.com/blog/guia-reforma-laboral-2025.html">
   <meta name="theme-color" content="#0D47A1">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CGHS82RP3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2CGHS82RP3');
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
   
-  <!-- Analytics, Open Graph, Twitter, Favicons... (Igual que en blog.html) -->
+  <!-- Open Graph / Twitter etc. -->
+  <meta property="og:url" content="https://armlaboral.com/blog/guia-reforma-laboral-2025.html">
+  <meta property="og:title" content="Guía de la Reforma Laboral 2025 para Empresas — ARm Laboral">
+  <meta property="og:image" content="https://armlaboral.com/img/blog/reforma-laboral-portada.webp">
   
-  <!-- Hojas de Estilo (Nótese el ../ para salir de la carpeta /blog/) -->
-  <link rel="stylesheet" href="../base.css?v=1.0.6">
-  <link rel="stylesheet" href="../mobile.css?v=1.0.6" media="(max-width: 900px)">
-  <link rel="stylesheet" href="../desktop.css?v=1.0.6" media="(min-width: 901px)">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"></noscript>
+
+  <link rel="stylesheet" href="../base.css?v=1.0.8">
+  <link rel="stylesheet" href="../mobile.css?v=1.0.8" media="(max-width: 900px)">
+  <link rel="stylesheet" href="../desktop.css?v=1.0.8" media="(min-width: 901px)">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -46,7 +68,6 @@
 </head>
 <body>
   <header id="main-header">
-    <!-- El header es idéntico al de las otras páginas, con las rutas corregidas (../) -->
     <nav class="container nav">
       <a href="../index.html" class="brand">
         <div class="logo-container">
@@ -71,10 +92,6 @@
   </header>
 
   <main>
-    <!-- ======================================================= -->
-    <!--           LA CORRECCIÓN PRINCIPAL ESTÁ AQUÍ             -->
-    <!-- Se usa la misma estructura de Hero que en todo el sitio -->
-    <!-- ======================================================= -->
     <section class="hero hero-index">
       <svg class="hero-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 C480,0 960,0 1440,120 Z"></path></svg>
       <div class="container hero-inner">
@@ -89,9 +106,9 @@
 
     <article class="post-body">
       <div class="container post-grid-layout">
-        <div class="post-content">
+        <div class="post-content card">
           <figure class="post-main-image">
-            <img src="../img/blog/Blogger002.webp" alt="Reforma Laboral 2025: Lo que tu empresa necesita saber." itemprop="image">
+            <img src="../img/blog/reforma-laboral-portada.webp" alt="Reforma Laboral 2025: Lo que tu empresa necesita saber." itemprop="image">
             <figcaption>Adelantar la implementación protege tu marca y evita costos innecesarios.</figcaption>
           </figure>
           
@@ -120,19 +137,18 @@
         </div>
         
         <aside class="post-sidebar">
-           <div class="sidebar-widget">
+           <div class="sidebar-widget card">
              <h4>Artículo Pilar</h4>
              <p>Esta es una guía esencial. Compártela con tu equipo de RRHH y líderes de área.</p>
            </div>
-           <div class="sidebar-widget">
+           <div class="sidebar-widget card">
              <h4>¿Necesitas Ayuda Urgente?</h4>
              <a href="https://wa.me/528123682595?text=Hola,%20leí%20su%20guía%20de%20la%20Reforma%202025%20y%20necesito%20asesoría." class="btn primary" style="width:100%;">Hablar por WhatsApp</a>
            </div>
         </aside>
 
-        <!-- La Ficha de Autor va al final del contenido principal -->
         <div class="author-box-container">
-          <div class="author-box">
+          <div class="author-box card">
             <img src="https://placehold.co/150x150/0D47A1/FFFFFF?text=MA" alt="Foto de Makario Arteaga" class="author-photo">
             <div class="author-info">
               <h3 class="author-name">Makario Arteaga</h3>
@@ -153,11 +169,29 @@
     </article>
   </main>
   
-  <footer>
-     <!-- El footer es idéntico al de las otras páginas, con las rutas corregidas (../) -->
+  <footer class="footer-lite">
+    <div class="container">
+      <a href="../index.html" class="brand" aria-label="Inicio ARm Laboral">
+        <span class="logo-container" aria-hidden="true">
+          <img class="logo-dark" alt="ARm Laboral logo (dark)" src="../logo-header-dark-40.webp" width="40" height="40">
+        </span>
+        <span>ARm Laboral</span>
+      </a>
+      <!-- ======================================================= -->
+      <!--           LA MODIFICACIÓN ESTÁ AQUÍ                     -->
+      <!-- ======================================================= -->
+      <div class="social-icons">
+        <a href="https://www.facebook.com/armlaboral" target="_blank" rel="noopener" aria-label="Facebook ARm Laboral"><img src="../facebook_40.webp" alt="Facebook ARm Laboral" width="24" height="24" loading="lazy"></a>
+        <a href="https://www.instagram.com/armlaboral" target="_blank" rel="noopener" aria-label="Instagram ARm Laboral"><img src="../instagram_40.webp" alt="Instagram ARm Laboral" width="24" height="24" loading="lazy"></a>
+        <a href="https://www.linkedin.com/company/arm-laboral" target="_blank" rel="noopener" aria-label="LinkedIn ARm Laboral"><img src="../linkedin_40.webp" alt="LinkedIn ARm Laboral" width="24" height="24" loading="lazy"></a>
+      </div>
+      <div class="footer-credits">
+        © 2025 ARm Laboral. Todos los derechos reservados.
+      </div>
+    </div>
   </footer>
 
-  <script src="../script.js?v=1.0.6" defer></script>
+  <script src="../script.js?v=1.0.8" defer></script>
 </body>
 </html>
 
