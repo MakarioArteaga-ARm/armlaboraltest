@@ -53,9 +53,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
   </noscript>
   
-  <link rel="stylesheet" href="base.css?v=1.0.3">
-<link rel="stylesheet" href="mobile.css?v=1.0.3" media="(max-width: 900px)">
-<link rel="stylesheet" href="desktop.css?v=1.0.3" media="(min-width: 901px)">
+  <link rel="stylesheet" href="base.css?v=1.0.4">
+<link rel="stylesheet" href="mobile.css?v=1.0.4" media="(max-width: 900px)">
+<link rel="stylesheet" href="desktop.css?v=1.0.4" media="(min-width: 901px)">
 </head>
 <body>
   <header id="main-header" role="banner">
@@ -214,7 +214,46 @@
     <a class="btn primary" href="https://wa.me/528123682595?text=Hola%20ARm%20Laboral" target="_blank">Abrir chat</a>
     <button class="btn hero-alt" id="close-popup">Cerrar</button>
   </div>
-  <script src="script.js?v=1.0.3" defer></script>
+
+  <!-- ================================================================= -->
+  <!-- ======================= BANNER DE COOKIES ======================= -->
+  <!-- ================================================================= -->
+  <div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-description">
+    <div class="cookie-card">
+        <h3 id="cookie-title" class="cookie-title">Consentimiento para cookies y datos</h3>
+        <p id="cookie-description" class="cookie-description">
+            En este sitio web utilizamos cookies funcionales y de análisis para procesar información y mejorar tu experiencia. Este consentimiento es voluntario y puede ser revocado en cualquier momento.
+        </p>
+
+        <div class="cookie-options">
+            <div class="cookie-checkbox-wrapper">
+                <input type="checkbox" id="cookies-necesarias" name="cookies-necesarias" checked disabled>
+                <label for="cookies-necesarias">Técnicamente Necesario</label>
+            </div>
+            <div class="cookie-checkbox-wrapper">
+                <input type="checkbox" id="cookies-funcion" name="cookies-funcion">
+                <label for="cookies-funcion">Función y Análisis</label>
+            </div>
+        </div>
+
+        <div class="cookie-actions">
+            <button id="cookie-reject-btn" class="btn hero-alt">Rechazar</button>
+            <button id="cookie-accept-btn" class="btn primary">Aceptar todo</button>
+        </div>
+
+        <div class="cookie-links">
+            <a href="aviso-de-privacidad.html">Declaración de cookies</a>
+            <span>|</span>
+            <a href="aviso-de-privacidad.html">Aviso de Privacidad</a>
+        </div>
+    </div>
+  </div>
+
+
+  <script src="script.js?v=1.0.4" defer></script>
+  <!-- AÑADIMOS EL NUEVO SCRIPT DEL BANNER -->
+  <script src="cookie-consent.js?v=1.0.4" defer></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
