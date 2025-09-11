@@ -213,4 +213,13 @@
 .faq-content .faq-accordion summary::after {
     color: var(--primary-dynamic);
 }
+
+/* =================================================================
+   INICIO DE LA CORRECCIÓN: Espaciado para FAQS en Escritorio
+   ================================================================= */
+.faq-accordion {
+    gap: var(--space-4); /* Aumenta el espacio entre preguntas a 1.5rem (24px) */
+}
+/* FIN DE LA CORRECCIÓN */
+
 }
