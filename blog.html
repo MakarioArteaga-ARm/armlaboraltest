@@ -4,13 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <!-- SEO y Metadatos Esenciales -->
   <title>Blog de Derecho Laboral para Empresas — ARm Laboral</title>
   <meta name="description" content="Análisis, guías y estrategias sobre derecho laboral en México. Un recurso para líderes que toman decisiones informadas y protegen su empresa.">
   <link rel="canonical" href="https://armlaboral.com/blog.html">
   <meta name="theme-color" content="#0D47A1">
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CGHS82RP3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,14 +17,16 @@
     gtag('config', 'G-2CGHS82RP3');
   </script>
   
-  <!-- Open Graph / Facebook -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  
   <meta property="og:url" content="https://armlaboral.com/blog.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Blog de Derecho Laboral para Empresas — ARm Laboral">
   <meta property="og:description" content="Análisis y guías sobre derecho laboral en México para proteger tu empresa.">
   <meta property="og:image" content="https://armlaboral.com/og-image-blog.jpg">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="armlaboral.com">
   <meta property="twitter:url" content="https://armlaboral.com/blog.html">
@@ -34,8 +34,6 @@
   <meta name="twitter:description" content="Análisis y guías sobre derecho laboral en México para proteger tu empresa.">
   <meta name="twitter:image" content="https://armlaboral.com/og-image-blog.jpg">
 
-  <!-- Favicons y precarga de fuentes -->
-  <link rel="icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -43,40 +41,61 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
   </noscript>
 
-  <!-- Hojas de Estilo -->
-  <link rel="stylesheet" href="base.css?v=1.0.6">
-  <link rel="stylesheet" href="mobile.css?v=1.0.6" media="(max-width: 900px)">
-  <link rel="stylesheet" href="desktop.css?v=1.0.6" media="(min-width: 901px)">
+  <link rel="stylesheet" href="base.css?v=1.0.8">
+  <link rel="stylesheet" href="mobile.css?v=1.0.8" media="(max-width: 900px)">
+  <link rel="stylesheet" href="desktop.css?v=1.0.8" media="(min-width: 901px)">
 
-  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": "https://armlaboral.com/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog"
-    }]
+    "@graph": [
+      {
+        "@type": "Blog",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://armlaboral.com/blog.html"
+        },
+        "url": "https://armlaboral.com/blog.html",
+        "name": "Blog de Derecho Laboral para Empresas — ARm Laboral",
+        "description": "Análisis, guías y estrategias sobre derecho laboral en México. Un recurso para líderes que toman decisiones informadas y protegen su empresa.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "ARm Laboral",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://armlaboral.com/icons/favicon-192.png"
+          }
+        },
+        "inLanguage": "es-MX"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://armlaboral.com/"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog"
+        }]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header id="main-header">
-    <nav class="container nav">
-      <a href="index.html" class="brand">
+  <header id="main-header" role="banner">
+    <nav class="container nav" aria-label="Navegación principal">
+      <a href="index.html" class="brand" aria-label="Inicio ARm Laboral">
         <div class="logo-container">
-          <img class="logo-white" alt="ARm Laboral logo" src="logo-header-40.webp" width="40" height="40">
-          <img class="logo-dark" alt="ARm Laboral logo (dark)" src="logo-header-dark-40.webp" width="40" height="40">
+          <img class="logo-white" alt="ARm Laboral logo" src="logo-header-40.webp" width="40" height="40" decoding="async">
+          <img class="logo-dark" alt="ARm Laboral logo (dark)" src="logo-header-dark-40.webp" width="40" height="40" decoding="async">
         </div>
         <div>ARm Laboral</div>
       </a>
-      <div class="main-menu" id="main-menu">
+      <div class="main-menu" id="main-menu" role="dialog" aria-modal="true" aria-label="Menú">
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
@@ -85,13 +104,13 @@
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-controls="main-menu" aria-expanded="false" aria-label="Abrir menú">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h18M3 18h18"/></svg>
       </button>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero hero-index">
       <svg class="hero-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 C480,0 960,0 1440,120 Z"></path></svg>
       <div class="container hero-inner">
@@ -106,34 +125,42 @@
 
     <section class="blog-feed">
       <div class="container">
-        <!-- Artículo Destacado (El Pilar) -->
-<article class="post-card featured">
+        <article class="post-card featured">
           <div class="post-card-image">
-            <a href="blog/guia-reforma-laboral-2025.html">
+            <a href="blog/guia-reforma-laboral.html">
               <img 
                 src="img/blog/reforma-laboral-portada-800.webp"
-                srcset="img/blog/reforma-laboral-portada-400.webp 400w,
-                        img/blog/reforma-laboral-portada-800.webp 800w,
-                        img/blog/reforma-laboral-portada-1200.webp 1200w"
+                srcset="img/blog/reforma-laboral-portada-400.webp 400w, img/blog/reforma-laboral-portada-800.webp 800w, img/blog/reforma-laboral-portada-1200.webp 1200w"
                 sizes="(max-width: 900px) 90vw, 50vw"
-                alt="Reunión de abogados revisando documentos de la reforma laboral 2025."
+                alt="Reunión de abogados revisando documentos de la reforma laboral."
                 loading="lazy"
-                decoding="async">
+                decoding="async"
+                width="800"
+                height="533">
             </a>
           </div>
           <div class="post-card-content">
             <span class="post-card-category">Guía Práctica • Cumplimiento</span>
-            <h2 class="post-card-title"><a href="blog/guia-reforma-laboral-2025.html">Reforma Laboral 2025: ¿Qué significa para tu empresa?</a></h2>
-            <p class="post-card-excerpt">Guía esencial sobre la reforma laboral 2025: riesgos, oportunidades y un checklist de implementación para proteger tu negocio.</p>
-            <a href="blog/guia-reforma-laboral-2025.html" class="btn primary">Leer Artículo Completo</a>
+            <h2 class="post-card-title"><a href="blog/guia-reforma-laboral.html">Reforma Laboral: ¿Qué significa para tu empresa?</a></h2>
+            <p class="post-card-excerpt">Guía esencial sobre la reforma laboral: riesgos, oportunidades y un checklist de implementación para proteger tu negocio.</p>
+            <a href="blog/guia-reforma-laboral.html" class="btn primary">Leer Artículo Completo</a>
           </div>
         </article>
 
         <div class="post-grid">
-          <!-- Próximamente: Artículo Clúster -->
-          <article class="post-card">
+           <article class="post-card">
             <div class="post-card-image">
-              <a href="blog/gestion-laboral-inteligente.html"><img src="https://placehold.co/600x400/1976D2/FFFFFF?text=Gesti%C3%B3n" alt="Equipo de trabajo en oficina moderna y tranquila."></a>
+              <a href="blog/gestion-laboral-inteligente.html">
+                <img 
+                  src="img/blog/gestion-inteligente-800.webp"
+                  srcset="img/blog/gestion-inteligente-400.webp 400w, img/blog/gestion-inteligente-800.webp 800w, img/blog/gestion-inteligente-1200.webp 1200w"
+                  sizes="(max-width: 600px) 100vw, 33vw"
+                  alt="Equipo de trabajo en oficina moderna y tranquila, representando gestion laboral inteligente."
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="533">
+              </a>
             </div>
             <div class="post-card-content">
               <span class="post-card-category">Estrategia • Operaciones</span>
@@ -143,16 +170,25 @@
             </div>
           </article>
 
-          <!-- Próximamente: Artículo Mini-Pilar -->
           <article class="post-card">
             <div class="post-card-image">
-              <a href="blog/prevencion-activo-invisible.html"><img src="https://placehold.co/600x400/64B5F6/FFFFFF?text=Prevenci%C3%B3n" alt="Equipo analizando estrategias de prevención laboral."></a>
+              <a href="blog/prevencion-laboral-activo-invisible.html">
+                <img 
+                  src="img/blog/Prevencion-Laboral-800.webp"
+                  srcset="img/blog/Prevencion-Laboral-400.webp 400w, img/blog/Prevencion-Laboral-800.webp 800w, img/blog/Prevencion-Laboral-1200.webp 1200w"
+                  sizes="(max-width: 600px) 100vw, 33vw"
+                  alt="Equipo analizando estrategias de prevención laboral."
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="533">
+              </a>
             </div>
             <div class="post-card-content">
               <span class="post-card-category">Filosofía • Estrategia</span>
-              <h2 class="post-card-title"><a href="blog/prevencion-activo-invisible.html">Prevención: El Activo Invisible</a></h2>
+              <h2 class="post-card-title"><a href="blog/prevencion-laboral-activo-invisible.html">Prevención: El Activo Invisible</a></h2>
               <p class="post-card-excerpt">Descubre por qué la prevención no es un gasto, sino un activo que blinda a tu empresa, ahorra costos y genera confianza.</p>
-              <a href="blog/prevencion-activo-invisible.html" class="btn primary">Leer Artículo Completo</a>
+              <a href="blog/prevencion-laboral-activo-invisible.html" class="btn primary">Leer Artículo Completo</a>
             </div>
           </article>
         </div>
@@ -160,7 +196,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="container foot footer-grid">
       <div class="footer-left">
         <a href="index.html" class="brand" aria-label="Inicio ARm Laboral">
@@ -206,16 +242,12 @@
     <button class="btn hero-alt" id="close-popup">Cerrar</button>
   </div>
   
-  <!-- ================================================================= -->
-  <!-- ======================= BANNER DE COOKIES ======================= -->
-  <!-- ================================================================= -->
   <div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-description">
     <div class="cookie-card">
         <h3 id="cookie-title" class="cookie-title">Consentimiento para cookies y datos</h3>
         <p id="cookie-description" class="cookie-description">
             En este sitio web utilizamos cookies funcionales y de análisis para procesar información y mejorar tu experiencia. Este consentimiento es voluntario y puede ser revocado en cualquier momento.
         </p>
-
         <div class="cookie-options">
             <div class="cookie-checkbox-wrapper">
                 <input type="checkbox" id="cookies-necesarias" name="cookies-necesarias" checked disabled>
@@ -226,12 +258,10 @@
                 <label for="cookies-funcion">Función y Análisis</label>
             </div>
         </div>
-
         <div class="cookie-actions">
             <button id="cookie-reject-btn" class="btn hero-alt">Rechazar</button>
             <button id="cookie-accept-btn" class="btn primary">Aceptar todo</button>
         </div>
-
         <div class="cookie-links">
             <a href="aviso-de-privacidad.html">Declaración de cookies</a>
             <span>|</span>
@@ -240,9 +270,8 @@
     </div>
   </div>
 
-
-  <script src="script.js?v=1.0.4" defer></script>
-  <!-- AÑADIMOS EL NUEVO SCRIPT DEL BANNER -->
-  <script src="cookie-consent.js?v=1.0.4" defer></script>
+  <script src="script.js?v=1.0.8" defer></script>
+  <script src="cookie-consent.js?v=1.0.8" defer></script>
 </body>
 </html>
+
