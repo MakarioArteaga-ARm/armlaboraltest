@@ -117,7 +117,7 @@
           <h2 class="glass-text">Hablemos de tu negocio.</h2>
           <p class="lead" style="color: rgba(255,255,255,0.7);">Estamos listos para escucharte. Te contactamos hoy para agendar un diagnóstico breve y gratuito.</p>
           <div class="actions">
-            <a class="btn primary" href="#contact-form">Solicitar consulta</a>
+            <a class="btn primary" href="#contact-form-section">Solicitar consulta</a>
             <a class="btn hero-alt" href="tel:+528123682595">Llamar ahora</a>
           </div>
         </div>
@@ -125,65 +125,63 @@
     </section>
 
     <!-- INICIO DE LA CORRECCIÓN -->
-    <!-- Se separa la información de contacto y el formulario en dos secciones para un mejor control del layout -->
-    <section class="cta-band" id="contact-info">
+    <section id="contact-form-section">
       <div class="container grid-2 animate-on-scroll">
-        <div class="grid-text section-head-left">
+        <!-- Tarjeta 1: Información de Contacto -->
+        <div class="grid-text card">
           <h2 class="title-accent">Inicia una conversación</h2>
           <p class="sub">Completa este formulario y nuestro equipo se pondrá en contacto contigo a la brevedad para agendar una llamada o reunión inicial. Tu información es confidencial.</p>
-        </div>
-        <div class="grid-media">
-          <address style="font-style: normal;">
+          <address style="font-style: normal; margin-top: 1rem;">
             <p><strong>ARm Laboral</strong><br>
             Monterrey, N.L., México<br>
             <a href="mailto:contacto@armlaboral.com" class="form-link">contacto@armlaboral.com</a><br>
             <a href="tel:+528123682595" class="form-link">+52 81 2368 2595</a></p>
           </address>
         </div>
-      </div>
-    </section>
-
-    <section style="padding-top: 0;">
-      <div class="container">
-        <!-- El formulario ahora es la tarjeta, no está envuelto en una -->
-        <form class="form card animate-on-scroll" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <p class="hidden" style="display:none;">
-            <label>No llenar si eres humano: <input name="bot-field"></label>
-          </p>
-          <h3 class="title-accent" style="text-align:center;">Formulario de Contacto</h3>
-          <p class="sub" style="text-align:center; max-width: 60ch; margin: 0 auto 20px;">Cuéntanos qué necesitas y preparamos una ruta de acción clara.</p>
-          <div class="row">
-            <div>
-              <label class="label hidden-label" for="name">Nombre</label>
-              <input class="input" type="text" id="name" name="name" required placeholder="Tu nombre completo" />
+        
+        <!-- Tarjeta 2: Formulario -->
+        <div class="grid-media">
+          <form class="form card" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <p class="hidden" style="display:none;">
+              <label>No llenar si eres humano: <input name="bot-field"></label>
+            </p>
+            <h3 class="title-accent" style="text-align:center;">Formulario de Contacto</h3>
+            <div class="row">
+              <div>
+                <label class="label hidden-label" for="name">Nombre</label>
+                <input class="input" type="text" id="name" name="name" required placeholder="Tu nombre completo" />
+              </div>
+              <div>
+                <label class="label hidden-label" for="company">Empresa</label>
+                <input class="input" type="text" id="company" name="company" required placeholder="Nombre de tu empresa" />
+              </div>
             </div>
-            <div>
-              <label class="label hidden-label" for="company">Empresa</label>
-              <input class="input" type="text" id="company" name="company" required placeholder="Nombre de tu empresa" />
+            <div class="row">
+              <div>
+                <label class="label hidden-label" for="email">Email</label>
+                <input class="input" type="email" id="email" name="email" required placeholder="tu@empresa.com" />
+              </div>
+              <div>
+                <label class="label hidden-label" for="phone">Teléfono</label>
+                <input class="input" type="tel" id="phone" name="phone" required placeholder="+52 81 ..." />
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div>
-              <label class="label hidden-label" for="email">Email</label>
-              <input class="input" type="email" id="email" name="email" required placeholder="tu@empresa.com" />
+            <label class="label hidden-label" for="message">¿En qué podemos ayudarte?</label>
+            <textarea class="input" id="message" name="message" placeholder="Cuéntanos brevemente el contexto" required></textarea>
+            <div class="actions" style="justify-content: flex-end;">
+              <button class="btn primary" type="submit">Enviar Mensaje</button>
             </div>
-            <div>
-              <label class="label hidden-label" for="phone">Teléfono</label>
-              <input class="input" type="tel" id="phone" name="phone" required placeholder="+52 81 ..." />
-            </div>
-          </div>
-          <label class="label hidden-label" for="message">¿En qué podemos ayudarte?</label>
-          <textarea class="input" id="message" name="message" placeholder="Cuéntanos brevemente el contexto" required></textarea>
-          <div class="actions" style="justify-content: flex-end;">
-            <button class="btn primary" type="submit">Enviar Mensaje</button>
-          </div>
-          <p class="sub" style="margin-top:8px">Al enviar, aceptas nuestro <a href="aviso-de-privacidad.html" class="form-link">Aviso de privacidad</a>.</p>
-        </form>
-
-        <div id="status-message" class="center card" style="display: none; padding: 40px; text-align: center;">
-            <h2 id="status-title" class="title-accent"></h2>
-            <p id="status-text" class="sub" style="margin: 0 auto;"></p>
+            <p class="sub" style="margin-top:8px; font-size: 0.8rem;">Al enviar, aceptas nuestro <a href="aviso-de-privacidad.html" class="form-link">Aviso de privacidad</a>.</p>
+          </form>
         </div>
+      </div>
+
+      <!-- El mensaje de estado ahora está fuera del grid -->
+      <div class="container">
+          <div id="status-message" class="center card" style="display: none; padding: 40px; text-align: center; margin-top: 2rem;">
+              <h2 id="status-title" class="title-accent"></h2>
+              <p id="status-text" class="sub" style="margin: 0 auto;"></p>
+          </div>
       </div>
     </section>
     <!-- FIN DE LA CORRECCIÓN -->
