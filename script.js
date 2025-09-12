@@ -146,81 +146,65 @@ document.addEventListener('DOMContentLoaded', () => {
         animated.forEach(el => el.classList.add('visible'));
     }
 
-    // --- INICIALIZACIÓN DEL BOTÓN DE WHATSAPP (MEJORADO) ---
+    // --- INICIALIZACIÓN DEL BOTÓN DE WHATSAPP (ESTILO CHAT CON ANIMACIÓN) ---
     const fab = document.getElementById('whatsapp-fab');
     const badge = document.getElementById('wapp-badge');
-    const overlay = document.getElementById('wapp-overlay');
     const popup = document.getElementById('whatsapp-popup');
-    const closeBtn = document.getElementById('close-popup');
+    const closeBtn = document.getElementById('wapp-close');
 
-    const VISIT_TTL_HOURS = 24; // Horas para considerar una "nueva visita" y mostrar el badge de nuevo.
+    const VISIT_TTL_HOURS = 24;
     const LS_KEY_LAST_OPEN = 'wapp_last_open_ts_v1';
 
+    // Animation timings (in milliseconds)
+    const FAB_APPEAR_DELAY = 2000;   // 2 seconds for the button to appear
+    const BADGE_APPEAR_DELAY = 1000; // 1 second AFTER the button for the badge to appear
+
     const nowTs = () => Date.now();
-    const hoursSince = (ts) => (nowTs() - ts) / 3600000; // 36e5 es 3.600.000 ms = 1 hora
+    const hoursSince = (ts) => (nowTs() - ts) / 3600000;
 
     const shouldShowBadge = () => {
         try {
             const raw = localStorage.getItem(LS_KEY_LAST_OPEN);
-            if (!raw) return true; // Si nunca se ha abierto, mostrar.
+            if (!raw) return true;
             const lastOpenedTs = Number(raw);
-            if (isNaN(lastOpenedTs)) return true; // Si el dato es inválido, mostrar.
-            return hoursSince(lastOpenedTs) >= VISIT_TTL_HOURS; // Mostrar si ha pasado el tiempo definido.
+            return isNaN(lastOpenedTs) || hoursSince(lastOpenedTs) >= VISIT_TTL_HOURS;
         } catch {
-            return true; // En caso de error (ej: localStorage bloqueado), mostrar por defecto.
+            return true;
         }
     };
 
-    const hideBadge = () => badge?.classList.add('is-hidden');
-    const showBadge = () => badge?.classList.remove('is-hidden');
+    const hideBadge = () => badge?.classList.remove('has-animation');
+    const showBadge = () => badge?.classList.add('has-animation');
 
-    const openWappPopup = () => {
-        if (!overlay) return;
-        overlay.classList.add('is-open');
-        overlay.setAttribute('aria-hidden', 'false');
+    const toggleWappPopup = () => {
+        const isOpen = popup.classList.toggle('is-open');
+        popup.setAttribute('aria-hidden', !isOpen);
         
-        // Al abrir, se oculta el badge y se guarda la marca de tiempo.
-        hideBadge();
-        try {
-            localStorage.setItem(LS_KEY_LAST_OPEN, String(nowTs()));
-        } catch {}
-
-        // Mejorar accesibilidad: poner el foco en el primer elemento accionable.
-        setTimeout(() => popup?.querySelector('a, button')?.focus(), 100);
+        if (isOpen) {
+            hideBadge();
+            try {
+                localStorage.setItem(LS_KEY_LAST_OPEN, String(nowTs()));
+            } catch {}
+        }
     };
 
-    const closeWappPopup = () => {
-        if (!overlay) return;
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        fab?.focus(); // Devolver el foco al botón principal al cerrar.
-    };
+    if (fab && popup) {
+        // Animation orchestrator
+        setTimeout(() => {
+            // 1. The button appears
+            fab.classList.add('is-visible');
 
-    if (fab && overlay && popup) {
-        // 1. Determinar el estado inicial del badge al cargar la página.
-        shouldShowBadge() ? showBadge() : hideBadge();
-
-        // 2. Abrir el popup al hacer clic en el botón flotante.
-        fab.addEventListener('click', (e) => {
-            e.preventDefault();
-            openWappPopup();
-        });
-
-        // 3. Cerrar al hacer clic fuera del popup (en el overlay).
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                closeWappPopup();
+            // 2. We check if we should show the badge
+            if (shouldShowBadge()) {
+                // If so, we wait a little longer for it to appear
+                setTimeout(() => {
+                    showBadge();
+                }, BADGE_APPEAR_DELAY);
             }
-        });
+        }, FAB_APPEAR_DELAY);
 
-        // 4. Cerrar al presionar la tecla "Escape".
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
-                closeWappPopup();
-            }
-        });
-
-        // 5. (Opcional) Funcionalidad para el botón de cerrar explícito.
-        closeBtn?.addEventListener('click', closeWappPopup);
+        // Event listeners for functionality
+        fab.addEventListener('click', toggleWappPopup);
+        closeBtn?.addEventListener('click', toggleWappPopup);
     }
 });
