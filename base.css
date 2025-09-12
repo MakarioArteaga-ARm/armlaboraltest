@@ -686,6 +686,11 @@ textarea.input {
   transform: translateY(0) scale(1);
 animation: pulse 2s infinite;
 }
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
 .whatsapp-fab img {
     width: 34px;
     height: 34px;
