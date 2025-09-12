@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
   </noscript>
   
-  <link rel="stylesheet" href="base.css?v=1.0.8">
+  <link rel="stylesheet" href="base.css?v=1.0.9">
   <link rel="stylesheet" href="mobile.css?v=1.0.8" media="(max-width: 900px)">
   <link rel="stylesheet" href="desktop.css?v=1.0.8" media="(min-width: 901px)">
 </head>
@@ -199,13 +199,20 @@
     <span class="fab-badge" id="wapp-badge">1</span>
   </div>
 
-  <!-- Overlay y Popup de WhatsApp -->
-  <div class="wapp-overlay" id="wapp-overlay" aria-hidden="true">
-    <div class="whatsapp-popup" id="whatsapp-popup" role="dialog" aria-modal="true" aria-labelledby="wapp-title">
-      <p id="wapp-title">¿Hablamos por WhatsApp?</p>
-      <a class="btn primary" href="https://wa.me/528123682595?text=Hola%20ARm%20Laboral" target="_blank" rel="noopener">Abrir chat</a>
-      <!-- Este botón es opcional y está oculto por defecto, pero funcional si se muestra. -->
-      <button class="btn hero-alt" id="close-popup" style="display:none">Cerrar</button>
+  <!-- Popup de Invitación al Chat -->
+  <div class="whatsapp-popup" id="whatsapp-popup" aria-hidden="true">
+    <div class="wapp-header">
+      <div class="wapp-brand">
+        <img src="whatsapp_40.webp" alt="" width="24" height="24">
+        <span>ARm Laboral</span>
+      </div>
+      <button class="wapp-close" id="wapp-close" aria-label="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="wapp-body">
+      <p class="wapp-message-text">¿Hablamos por WhatsApp?</p>
+      <a class="btn wapp-go" href="https://wa.me/528123682595?text=Hola%20ARm%20Laboral" target="_blank" rel="noopener">Abrir chat</a>
     </div>
   </div>
 
@@ -238,7 +245,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=1.0.8" defer></script>
+  <script src="script.js?v=1.0.9" defer></script>
   <script src="cookie-consent.js?v=1.0.8" defer></script>
   
   <!-- INICIO DE LA MEJORA: Schema JSON-LD Refinado -->
