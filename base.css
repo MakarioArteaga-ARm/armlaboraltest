@@ -659,6 +659,9 @@ textarea.input {
     transform: translateY(0);
 }
 
+/* =================================================================
+   ESTILOS FINALES Y COMPLETOS PARA WHATSAPP
+   ================================================================= */
 .whatsapp-fab {
     position: fixed;
     bottom: 20px;
@@ -673,13 +676,20 @@ textarea.input {
     box-shadow: 0 4px 12px rgba(0,0,0,.2);
     cursor: pointer;
     z-index: var(--z-fab);
+    /* Estado inicial para animación de entrada */
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
-
+.whatsapp-fab.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 .whatsapp-fab img {
     width: 34px;
     height: 34px;
 }
-
+    
 .fab-badge {
     position: absolute;
     top: -4px;
@@ -695,21 +705,48 @@ textarea.input {
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 0 2px #fff;
+    /* Preparamos para la animación de JS */
+    opacity: 0;
+    transform: scale(0);
 }
 
-/* --- ESTILOS FINALES PARA WHATSAPP (HÍBRIDO TEMÁTICO Y VISUAL) --- */
+.fab-badge.is-hidden {
+  transform: scale(0);
+  opacity: 0;
+  animation-name: none;
+}
+
+@keyframes jump-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fab-badge.has-animation {
+  animation-name: jump-in;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-fill-mode: forwards;
+}
+
 .whatsapp-popup {
   position: fixed;
   bottom: 95px;
   right: 20px;
-  width: 320px; /* Un poco más compacto */
-  background-color: transparent; /* El contenedor principal es transparente */
+  width: 320px;
+  background-color: transparent;
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   overflow: hidden;
   z-index: var(--z-fab);
-  
-  /* Estado inicial para animación */
   opacity: 0;
   transform: translateY(15px);
   visibility: hidden;
@@ -723,7 +760,7 @@ textarea.input {
 }
 
 .wapp-header {
-  background-color: #128C7E; /* Un verde WhatsApp más corporativo */
+  background-color: #128C7E;
   color: #fff;
   padding: 12px 16px;
   display: flex;
@@ -754,12 +791,10 @@ textarea.input {
 .wapp-body {
   padding: 24px;
   text-align: center;
-  
-  /* --- AQUÍ APLICAMOS EL VIDRIO ESMERILADO --- */
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.5); /* Línea divisoria sutil */
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .wapp-message-text {
@@ -769,7 +804,6 @@ textarea.input {
   margin: 0 0 16px;
 }
 
-/* Botón que combina el estilo del sitio con el color de WhatsApp */
 .btn.wapp-go {
   background: #25D366;
   color: #fff;
@@ -788,7 +822,6 @@ textarea.input {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Ajuste para móvil */
 @media (max-width: 400px) {
   .whatsapp-popup {
     width: auto;
@@ -796,54 +829,8 @@ textarea.input {
   }
 }
 
-/* --- ANIMACIONES DE ENTRADA PARA WHATSAPP --- */
-
-/* Estado inicial del botón: oculto y fuera de la pantalla */
-.whatsapp-fab {
-  opacity: 0;
-  transform: translateY(20px) scale(0.9);
-  /* La animación se activará con JS */
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-}
-
-/* Estado visible del botón */
-.whatsapp-fab.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Animación de "salto" para el badge */
-@keyframes jump-in {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  70% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* El badge estará oculto por defecto hasta que se añada la clase */
-.fab-badge {
-  /* Hacemos que la animación se aplique cuando se añada la clase */
-  animation-name: none; 
-}
-
-.fab-badge.has-animation {
-  animation-name: jump-in;
-  animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto de rebote */
-  animation-fill-mode: forwards;
-}
-
-
 /* =================================================================
    ESTILOS BASE PARA EL COMPONENTE ACORDEÓN (GLOBAL)
-   Ahora vive aquí para que funcione en mobile y desktop (soluciones.html y faqs.html)
    ================================================================= */
 .faq-accordion { display: flex; flex-direction: column; gap: 1rem; }
 .faq-accordion details:hover { transform: scale(1.02); box-shadow: var(--ring-hover); }
@@ -1295,3 +1282,4 @@ textarea.input {
 .cookie-links span {
     margin: 0 0.5rem;
 }
+
