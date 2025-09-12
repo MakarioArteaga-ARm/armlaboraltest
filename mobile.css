@@ -175,3 +175,17 @@
         height: auto;
     }
 }
+#contacto-final .actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* <-- La clave: añade un espacio vertical de 15px entre los botones */
+}
+
+/* Hacemos que los botones ocupen un ancho consistente y legible,
+  igual que los botones del 'hero' al inicio.
+*/
+#contacto-final .actions .btn {
+  width: 100%;
+  max-width: 320px;
+}
