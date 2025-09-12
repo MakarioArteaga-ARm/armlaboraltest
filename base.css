@@ -709,22 +709,67 @@ textarea.input {
     to { opacity: 1; }
 }
 
+/* --- MEJORAS WHATSAPP: Overlay y Lógica de Cierre --- */
+
+/* Overlay que cubre toda la pantalla */
+.wapp-overlay {
+  position: fixed;
+  inset: 0; /* Abarca todo: top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(4px);
+  display: none; /* Oculto por defecto */
+  align-items: flex-end; /* Alinea el popup abajo en móviles */
+  justify-content: flex-end; /* Y a la derecha */
+  z-index: calc(var(--z-fab) + 1); /* Se asegura que esté sobre el botón FAB */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Estado visible del overlay */
+.wapp-overlay.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+/*
+  Ajustes al popup existente para que funcione dentro del overlay.
+  El posicionamiento ahora lo controla el overlay.
+*/
 .whatsapp-popup {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    display: none;
-    z-index: var(--z-fab);
+  position: relative; /* Sobreescribe el position:fixed anterior */
+  bottom: auto; /* Anula los valores fijos */
+  right: auto;
+  display: block; /* El popup siempre es visible, el overlay controla si se muestra */
+  /* Separación del borde de la pantalla en móvil */
+  margin: 0 20px 90px 20px; 
+  /* Animación de entrada */
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
 }
-.whatsapp-popup p {
-    margin: 0 0 10px;
-    font-size: 14px;
+
+.wapp-overlay.is-open .whatsapp-popup {
+    transform: translateY(0);
 }
+
+/* Clase de utilidad para ocultar el badge */
+.fab-badge.is-hidden {
+  display: none !important;
+}
+
+/* En pantallas de escritorio, centramos el popup */
+@media (min-width: 901px) {
+  .wapp-overlay {
+    align-items: center;
+    justify-content: center;
+  }
+  .whatsapp-popup {
+    margin: 0; /* Quitamos el margen móvil */
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(.23, 1, .32, 1);
+  }
+  .wapp-overlay.is-open .whatsapp-popup {
+      transform: scale(1);
+  }
 
 /* =================================================================
    ESTILOS BASE PARA EL COMPONENTE ACORDEÓN (GLOBAL)
