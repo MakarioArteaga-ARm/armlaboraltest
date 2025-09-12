@@ -18,20 +18,20 @@
   <link rel="manifest" href="site.webmanifest">
 
   <title>ARm Laboral | Asesoría Laboral para Empresas en Monterrey</title>
-  <meta name="description" content="Protege tu negocio con asesoría y defensa laboral premium para empresas en Monterrey. Soluciones claras y resultados sólidos con ARm Laboral." />
+  <meta name="description" content="Protege tu empresa con asesoría y defensa laboral para empresas en Monterrey. Soluciones claras y resultados sólidos con ARm Laboral." />
   <meta name="theme-color" content="#0D47A1" />
 
   <meta property="og:url" content="https://armlaboral.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ARm Laboral | Asesoría Laboral para Empresas en Monterrey">
-  <meta property="og:description" content="Protege tu negocio con asesoría laboral premium en Monterrey. Soluciones claras y resultados sólidos con ARm Laboral.">
+  <meta property="og:description" content="Protege tu empresa con asesoría laboral en Monterrey. Soluciones claras y resultados sólidos con ARm Laboral.">
   <meta property="og:image" content="https://armlaboral.com/og-image.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="armlaboral.com">
   <meta property="twitter:url" content="https://armlaboral.com/">
   <meta name="twitter:title" content="ARm Laboral | Asesoría Laboral para Empresas en Monterrey">
-  <meta name="twitter:description" content="Protege tu negocio con asesoría laboral premium en Monterrey. Soluciones claras y resultados sólidos con ARm Laboral.">
+  <meta name="twitter:description" content="Protege tu empresa con asesoría legal laboral en Monterrey. Soluciones claras y resultados sólidos con ARm Laboral.">
   <meta name="twitter:image" content="https://armlaboral.com/og-image.jpg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -76,8 +76,8 @@
         <div>
           <span class="kicker">Defensa y Estrategia Legal Empresarial</span>
           <h1 id="hero-title" class="glass-text">Asesoría Laboral para Empresas en Monterrey</h1>
-          <h2 class="glass-text">Protegemos tu negocio con documentación sólida, estrategia de prevención y defensa en juicios.</h2>
-          <p class="lead glass-text">Soluciones legales claras y eficientes, sin la burocracia de las firmas tradicionales. Estrategia, ejecución y resultados.</p>
+          <h2 class="glass-text">Donde tu empresa quiera llegar, te acompañamos con seguridad y legitimidad.</h2>
+          <p class="lead glass-text">Protegemos tu empresa con documentación sólida, estrategia de prevención y defensa en juicios, sin la burocracia de las firmas tradicionales.</p>
           <div class="actions" role="group" aria-label="Acciones principales">
             <a class="btn primary" href="contacto.html">Solicitar Consulta</a>
             <a class="btn hero-alt" href="soluciones.html">Ver Soluciones</a>
@@ -148,8 +148,8 @@
 
     <section class="center cta-final-bg" id="contacto-final" aria-labelledby="contacto-title">
       <div class="container animate-on-scroll">
-        <h2 id="contacto-title" class="title-accent">Listo para llevar tu negocio con seguridad y legitimidad.</h2>
-        <p class="sub">Como equipo de <strong>abogados para empresas en Monterrey</strong>, acompañamos negocios en todo México por canales digitales.</p>
+        <h2 id="contacto-title" class="title-accent">Listo para llevar tu empresa con seguridad y legitimidad.</h2>
+        <p class="sub">Como equipo de <strong>abogados para empresas en Monterrey</strong>, acompañamos empresas en todo México por canales digitales.</p>
         <div class="actions" role="group" aria-label="Canales de contacto">
           <a class="btn primary" href="contacto.html">Iniciar Conversación</a>
         </div>
@@ -193,15 +193,22 @@
     </div>
   </footer>
 
+  <!-- Botón Flotante de WhatsApp -->
   <div class="whatsapp-fab" id="whatsapp-fab">
     <img src="whatsapp_40.webp" srcset="whatsapp_40.webp 1x, whatsapp_80.webp 2x" alt="WhatsApp" width="34" height="34" decoding="async" loading="lazy" />
-    <span class="fab-badge">1</span>
+    <span class="fab-badge" id="wapp-badge">1</span>
   </div>
-  <div class="whatsapp-popup" id="whatsapp-popup">
-    <p>¿Hablamos por WhatsApp?</p>
-    <a class="btn primary" href="https://wa.me/528123682595?text=Hola%20ARm%20Laboral" target="_blank">Abrir chat</a>
-    <button class="btn hero-alt" id="close-popup">Cerrar</button>
+
+  <!-- Overlay y Popup de WhatsApp -->
+  <div class="wapp-overlay" id="wapp-overlay" aria-hidden="true">
+    <div class="whatsapp-popup" id="whatsapp-popup" role="dialog" aria-modal="true" aria-labelledby="wapp-title">
+      <p id="wapp-title">¿Hablamos por WhatsApp?</p>
+      <a class="btn primary" href="https://wa.me/528123682595?text=Hola%20ARm%20Laboral" target="_blank" rel="noopener">Abrir chat</a>
+      <!-- Este botón es opcional y está oculto por defecto, pero funcional si se muestra. -->
+      <button class="btn hero-alt" id="close-popup" style="display:none">Cerrar</button>
+    </div>
   </div>
+
 
   <div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-description">
     <div class="cookie-card">
@@ -294,4 +301,3 @@
   <!-- FIN DE LA MEJORA -->
 </body>
 </html>
-
