@@ -146,13 +146,81 @@ document.addEventListener('DOMContentLoaded', () => {
         animated.forEach(el => el.classList.add('visible'));
     }
 
-    // --- INICIALIZACIÓN DEL BOTÓN DE WHATSAPP ---
+    // --- INICIALIZACIÓN DEL BOTÓN DE WHATSAPP (MEJORADO) ---
     const fab = document.getElementById('whatsapp-fab');
+    const badge = document.getElementById('wapp-badge');
+    const overlay = document.getElementById('wapp-overlay');
     const popup = document.getElementById('whatsapp-popup');
     const closeBtn = document.getElementById('close-popup');
 
-    if (fab && popup && closeBtn) {
-        fab.addEventListener('click', () => popup.style.display = 'block');
-        closeBtn.addEventListener('click', () => popup.style.display = 'none');
+    const VISIT_TTL_HOURS = 24; // Horas para considerar una "nueva visita" y mostrar el badge de nuevo.
+    const LS_KEY_LAST_OPEN = 'wapp_last_open_ts_v1';
+
+    const nowTs = () => Date.now();
+    const hoursSince = (ts) => (nowTs() - ts) / 3600000; // 36e5 es 3.600.000 ms = 1 hora
+
+    const shouldShowBadge = () => {
+        try {
+            const raw = localStorage.getItem(LS_KEY_LAST_OPEN);
+            if (!raw) return true; // Si nunca se ha abierto, mostrar.
+            const lastOpenedTs = Number(raw);
+            if (isNaN(lastOpenedTs)) return true; // Si el dato es inválido, mostrar.
+            return hoursSince(lastOpenedTs) >= VISIT_TTL_HOURS; // Mostrar si ha pasado el tiempo definido.
+        } catch {
+            return true; // En caso de error (ej: localStorage bloqueado), mostrar por defecto.
+        }
+    };
+
+    const hideBadge = () => badge?.classList.add('is-hidden');
+    const showBadge = () => badge?.classList.remove('is-hidden');
+
+    const openWappPopup = () => {
+        if (!overlay) return;
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+        
+        // Al abrir, se oculta el badge y se guarda la marca de tiempo.
+        hideBadge();
+        try {
+            localStorage.setItem(LS_KEY_LAST_OPEN, String(nowTs()));
+        } catch {}
+
+        // Mejorar accesibilidad: poner el foco en el primer elemento accionable.
+        setTimeout(() => popup?.querySelector('a, button')?.focus(), 100);
+    };
+
+    const closeWappPopup = () => {
+        if (!overlay) return;
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        fab?.focus(); // Devolver el foco al botón principal al cerrar.
+    };
+
+    if (fab && overlay && popup) {
+        // 1. Determinar el estado inicial del badge al cargar la página.
+        shouldShowBadge() ? showBadge() : hideBadge();
+
+        // 2. Abrir el popup al hacer clic en el botón flotante.
+        fab.addEventListener('click', (e) => {
+            e.preventDefault();
+            openWappPopup();
+        });
+
+        // 3. Cerrar al hacer clic fuera del popup (en el overlay).
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeWappPopup();
+            }
+        });
+
+        // 4. Cerrar al presionar la tecla "Escape".
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+                closeWappPopup();
+            }
+        });
+
+        // 5. (Opcional) Funcionalidad para el botón de cerrar explícito.
+        closeBtn?.addEventListener('click', closeWappPopup);
     }
 });
