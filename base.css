@@ -684,6 +684,7 @@ textarea.input {
 .whatsapp-fab.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+animation: pulse 2s infinite;
 }
 .whatsapp-fab img {
     width: 34px;
