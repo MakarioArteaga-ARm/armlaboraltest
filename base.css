@@ -1284,3 +1284,30 @@ textarea.input {
 .cookie-links span {
     margin: 0 0.5rem;
 }
+/* --- ESTILOS NUEVOS PARA PÁGINA DE CONTACTO --- */
+.contact-block {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.contact-block h2.title-accent {
+  margin-bottom: 1rem;
+}
+.contact-details-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+.contact-details-list li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.contact-details-list svg {
+  flex-shrink: 0;
+  color: var(--primary-dynamic);
+}
+address {
+  font-style: normal;
+  line-height: 1.6;
+}
