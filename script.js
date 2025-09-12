@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animated.forEach(el => el.classList.add('visible'));
     }
 
-    // --- INICIALIZACIÓN DEL BOTÓN DE WHATSAPP (ESTILO CHAT CON ANIMACIÓN) ---
+    // --- INICIALIZACIÓN DEL BOTÓN DE WHATSAPP (CON ANIMACIÓN, CLIC FUERA Y MEMORIA) ---
     const fab = document.getElementById('whatsapp-fab');
     const badge = document.getElementById('wapp-badge');
     const popup = document.getElementById('whatsapp-popup');
@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const VISIT_TTL_HOURS = 24;
     const LS_KEY_LAST_OPEN = 'wapp_last_open_ts_v1';
 
-    // Animation timings (in milliseconds)
-    const FAB_APPEAR_DELAY = 2000;   // 2 seconds for the button to appear
-    const BADGE_APPEAR_DELAY = 1000; // 1 second AFTER the button for the badge to appear
+    // Tiempos de la animación (en milisegundos)
+    const FAB_APPEAR_DELAY = 2000;
+    const BADGE_APPEAR_DELAY = 1000;
 
     const nowTs = () => Date.now();
     const hoursSince = (ts) => (nowTs() - ts) / 3600000;
@@ -172,39 +172,68 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         }
     };
+    
+    const showBadge = () => {
+        badge?.classList.add('is-shown');
+        badge?.classList.add('has-animation');
+        // Remove animation class after it has played
+        badge?.addEventListener('animationend', () => {
+            badge.classList.remove('has-animation');
+        }, { once: true });
+    };
 
-    const hideBadge = () => badge?.classList.remove('has-animation');
-    const showBadge = () => badge?.classList.add('has-animation');
+    const hideBadge = () => {
+        badge?.classList.remove('is-shown');
+    };
 
-    const toggleWappPopup = () => {
-        const isOpen = popup.classList.toggle('is-open');
-        popup.setAttribute('aria-hidden', !isOpen);
-        
-        if (isOpen) {
+    const handleOutsideClick = (event) => {
+        if (!popup.contains(event.target) && !fab.contains(event.target)) {
+            closeWappPopup();
+        }
+    };
+
+    const openWappPopup = () => {
+        if (!popup.classList.contains('is-open')) {
+            popup.classList.add('is-open');
+            popup.setAttribute('aria-hidden', 'false');
+            
             hideBadge();
             try {
                 localStorage.setItem(LS_KEY_LAST_OPEN, String(nowTs()));
             } catch {}
+
+            setTimeout(() => document.addEventListener('click', handleOutsideClick), 0);
+        }
+    };
+
+    const closeWappPopup = () => {
+        if (popup.classList.contains('is-open')) {
+            popup.classList.remove('is-open');
+            popup.setAttribute('aria-hidden', 'true');
+            document.removeEventListener('click', handleOutsideClick);
         }
     };
 
     if (fab && popup) {
         // Animation orchestrator
         setTimeout(() => {
-            // 1. The button appears
             fab.classList.add('is-visible');
-
-            // 2. We check if we should show the badge
             if (shouldShowBadge()) {
-                // If so, we wait a little longer for it to appear
                 setTimeout(() => {
                     showBadge();
                 }, BADGE_APPEAR_DELAY);
+            } else {
+                hideBadge();
             }
         }, FAB_APPEAR_DELAY);
 
         // Event listeners for functionality
-        fab.addEventListener('click', toggleWappPopup);
-        closeBtn?.addEventListener('click', toggleWappPopup);
+        fab.addEventListener('click', (event) => {
+            event.stopPropagation();
+            popup.classList.contains('is-open') ? closeWappPopup() : openWappPopup();
+        });
+        
+        closeBtn?.addEventListener('click', closeWappPopup);
     }
 });
+
