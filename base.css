@@ -325,7 +325,8 @@ footer .brand .logo-dark {
 .card,
 .cta-band,
 .val,
-.faq-accordion details {
+.faq-accordion details,
+.contact-block { /* <-- AQUÍ ESTÁ LA CORRECCIÓN */
     background: rgb(255 255 255 / .65);
     backdrop-filter: blur(12px);
     border: 2px solid rgb(255 255 255 / .35);
@@ -453,7 +454,8 @@ section {
 .val h3,
 .hero-card strong,
 .testimonial-card strong,
-.faq-accordion summary {
+.faq-accordion summary,
+.contact-block h3 {
     background: linear-gradient(90deg, var(--primary-dynamic), var(--celeste-vibrante));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
