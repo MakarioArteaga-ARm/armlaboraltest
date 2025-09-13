@@ -213,12 +213,14 @@
 
 /*
  * =======================================================
- * ESTILOS FINALES PARA LA PÁGINA DE CONTACTO
+ * ESTILOS PÁGINA DE CONTACTO (VERSIÓN FINAL)
  * =======================================================
 */
+
+/* --- Mantiene la info y el mapa en 2 columnas --- */
 #info-map-block {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas: Info | Mapa */
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
     align-items: center;
 }
@@ -228,8 +230,8 @@
   overflow: hidden;
   box-shadow: var(--ring);
   border: 1px solid rgba(0,0,0,0.1);
-  height: 100%; /* El mapa ocupa toda la altura de la tarjeta */
-  min-height: 400px; /* Asegura una altura mínima */
+  height: 100%;
+  min-height: 400px;
 }
 
 .map-container iframe {
@@ -237,4 +239,12 @@
   height: 100%;
   border: 0;
 }
+
+/* --- CORRECCIÓN DE ESPACIADO PARA EL EFECTO DE FILAS --- */
+#contact-form-section {
+    padding-bottom: 40px; /* Reduce el espacio inferior de la primera sección */
+}
+
+#contact-info-section {
+    padding-top: 0; /* Elimina el espacio superior de la segunda sección */
 }
