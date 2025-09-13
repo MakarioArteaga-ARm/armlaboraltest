@@ -326,7 +326,7 @@ footer .brand .logo-dark {
 .cta-band,
 .val,
 .faq-accordion details,
-.contact-block { /* <-- AQUÍ ESTÁ LA CORRECCIÓN */
+.contact-block {
     background: rgb(255 255 255 / .65);
     backdrop-filter: blur(12px);
     border: 2px solid rgb(255 255 255 / .35);
@@ -455,7 +455,8 @@ section {
 .hero-card strong,
 .testimonial-card strong,
 .faq-accordion summary,
-.contact-block h3 {
+.contact-block h3,
+.contact-block h4 { /* <-- CORRECCIÓN AQUÍ */
     background: linear-gradient(90deg, var(--primary-dynamic), var(--celeste-vibrante));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -678,7 +679,6 @@ textarea.input {
     box-shadow: 0 4px 12px rgba(0,0,0,.2);
     cursor: pointer;
     z-index: var(--z-fab);
-    /* Estado inicial para animación de entrada */
     opacity: 0;
     transform: translateY(20px) scale(0.9);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -713,19 +713,16 @@ textarea.input {
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 0 2px #fff;
-    /* Preparamos para la animación de JS */
     opacity: 0;
     transform: scale(0);
-    transition: opacity 0.2s, transform 0.2s; /* Añadido para transiciones suaves */
+    transition: opacity 0.2s, transform 0.2s;
 }
 
-/* Clase para definir el estado VISIBLE del badge */
 .fab-badge.is-shown {
     opacity: 1;
     transform: scale(1);
 }
 
-/* Clase que ejecuta la animación de "salto" */
 .fab-badge.has-animation {
   animation: jump-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -869,8 +866,6 @@ textarea.input {
 /* =================================================================
    ESTILOS PARA EL BLOG (VERSIÓN FINAL Y UNIFICADA)
    ================================================================= */
-
-/* --- Página principal del Blog (blog.html) --- */
 .blog-feed {
     padding: 60px 0;
     background-color: transparent; 
@@ -956,7 +951,6 @@ textarea.input {
     gap: 40px;
 }
 
-/* --- Página de Artículo Individual --- */
 .post-breadcrumb {
     display: inline-block;
     color: #fff;
@@ -981,10 +975,8 @@ textarea.input {
 
 .post-body {
     padding: 60px 0;
-    /* CORRECCIÓN: El contenedor principal ahora es transparente */
     background: transparent; 
 }
-/* Se usa la clase .card de forma nativa en el HTML para el contenido */
 .post-content.card { padding: 2rem; }
 .sidebar-widget.card { padding: 1.5rem; margin-bottom: 2rem; }
 .author-box.card { padding: 2rem; }
@@ -1102,7 +1094,6 @@ textarea.input {
     margin-right: 1rem;
 }
 
-/* --- Footer Lite para el Blog --- */
 .footer-lite {
     padding: 40px 0;
     text-align: center;
@@ -1116,9 +1107,6 @@ textarea.input {
     font-size: 14px;
     color: var(--ink);
 }
-/* ======================================================= */
-/* LA MODIFICACIÓN ESTÁ AQUÍ                     */
-/* ======================================================= */
 .footer-lite .social-icons {
     display: flex;
     justify-content: center;
@@ -1132,7 +1120,6 @@ textarea.input {
 .footer-lite .social-icons a:hover img {
     opacity: 1;
 }
-/* --- Media Queries --- */
 @media (min-width: 901px) {
     .post-card.featured {
         grid-template-columns: 1fr 1fr;
@@ -1155,17 +1142,14 @@ textarea.input {
 /* ================================================================= */
 /* =================== ESTILOS BANNER DE COOKIES =================== */
 /* ================================================================= */
-
-/* Contenedor principal que cubre toda la pantalla con un fondo desenfocado */
 .cookie-banner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* MODIFICACIÓN 1: Usamos un velo de color más oscuro y sin desenfoque, como BYD */
     background-color: rgba(13, 71, 161, 0.4);
-    z-index: 3000; /* Asegura que esté por encima de todo */
+    z-index: 3000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1175,26 +1159,21 @@ textarea.input {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Clase para mostrar el banner con una animación de aparición */
 .cookie-banner.is-visible {
     opacity: 1;
     visibility: visible;
 }
 
-/* Clase para ocultar el banner con una animación de desaparición */
 .cookie-banner.is-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-/* La tarjeta flotante, usando tu estilo de .card como base */
 .cookie-card {
-    /* MODIFICACIÓN 2: Aumentamos la translucidez de la tarjeta */
     background: rgba(255, 255, 255, 0.75);
-    /* MODIFICACIÓN 3: Hacemos el efecto de vidrio más pronunciado para compensar */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde más visible */
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: var(--ring-hover);
     border-radius: var(--radius);
     color: var(--ink);
@@ -1213,7 +1192,7 @@ textarea.input {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
-    color: var(--primary-dark); /* Usa tu color de acento para el título */
+    color: var(--primary-dark);
 }
 
 .cookie-description {
@@ -1240,7 +1219,7 @@ textarea.input {
     width: 1.2em;
     height: 1.2em;
     margin-right: 0.6rem;
-    accent-color: var(--primary-dynamic); /* Usa tu azul dinámico */
+    accent-color: var(--primary-dynamic);
     cursor: pointer;
 }
 
@@ -1253,7 +1232,6 @@ textarea.input {
     cursor: pointer;
 }
 
-/* Heredamos los estilos de tus botones .btn */
 .cookie-actions {
     display: flex;
     gap: 1rem;
@@ -1289,7 +1267,6 @@ textarea.input {
 /* --- ESTILOS NUEVOS PARA PÁGINA DE CONTACTO --- */
 .contact-block {
   padding: 24px;
-  margin-bottom: 24px;
 }
 .contact-block h2.title-accent {
   margin-bottom: 1rem;
@@ -1313,3 +1290,11 @@ address {
   font-style: normal;
   line-height: 1.6;
 }
+
+/* Estilos para la sección de horario integrada */
+.contact-hours {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(13, 71, 161, 0.15); /* Línea divisora sutil */
+}
+
