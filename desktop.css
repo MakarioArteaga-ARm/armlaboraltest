@@ -1,6 +1,5 @@
 /*
  * desktop.css: Estilos para pantallas de escritorio (ancho > 900px).
- * Versión refactorizada con sistema de grid universal y robusto.
 */
 
 @media (min-width: 901px) {
@@ -13,11 +12,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
-    /* Blueprint por defecto: Texto a la izquierda, Media a la derecha */
     grid-template-areas: "text media";
   }
 
-  /* Asigna cada bloque a su área correspondiente */
   .grid-text {
     grid-area: text;
   }
@@ -26,7 +23,6 @@
     grid-area: media;
   }
 
-  /* La magia: Si el contenedor tiene esta clase, invierte el blueprint */
   .grid-2.reverse-on-desktop {
     grid-template-areas: "media text";
   }
@@ -48,7 +44,7 @@
   ========================== */
   .section-head-left,
   .section-head-right {
-    text-align: left; /* Asegura alineación a la izquierda dentro del grid */
+    text-align: left;
   }
 
   .section-head-right .actions {
@@ -138,27 +134,27 @@
   }
   
   /* =========================
-     FOOTER (YA CORREGIDO)
+     FOOTER
   ========================== */
   .footer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    align-items: start; /* Alinea las columnas por arriba */
+    align-items: start;
   }
   .footer-left { text-align: left; }
   
   .footer-right {
     text-align: right;
-    display: flex; /* Activa flexbox para la columna derecha */
-    flex-direction: column; /* Apila los hijos verticalmente */
-    justify-content: space-between; /* Separa la dirección y el copyright */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .footer-left .social-icons {
     display: flex; 
     gap: 12px;
-    justify-content: flex-start; /* Alinea los iconos a la izquierda */
+    justify-content: flex-start;
   }
 
   .social-icons img {
@@ -189,9 +185,6 @@
     margin-top: 15px;
   }
 
-/* =================================================================
-   NUEVOS ESTILOS (EXCLUSIVOS PARA LA PÁGINA FAQS.HTML)
-   ================================================================= */
 .faq-content .faq-accordion details {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.08);
@@ -214,30 +207,34 @@
     color: var(--primary-dynamic);
 }
 
-/* =================================================================
-   INICIO DE LA CORRECCIÓN: Espaciado para FAQS en Escritorio
-   ================================================================= */
 .faq-accordion {
-    gap: var(--space-4); /* Aumenta el espacio entre preguntas a 1.5rem (24px) */
+    gap: var(--space-4);
 }
-/* FIN DE LA CORRECCIÓN */
-/* --- ESTILOS NUEVOS PARA PÁGINA DE CONTACTO --- */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Le damos un poco más de espacio al formulario */
-  gap: 40px;
-  align-items: start;
+
+/*
+ * =======================================================
+ * ESTILOS FINALES PARA LA PÁGINA DE CONTACTO
+ * =======================================================
+*/
+#info-map-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas: Info | Mapa */
+    gap: 32px;
+    align-items: center;
 }
+
 .map-container {
   border-radius: var(--radius);
   overflow: hidden;
-  margin-top: 1rem;
   box-shadow: var(--ring);
   border: 1px solid rgba(0,0,0,0.1);
-  height: 350px;
+  height: 100%; /* El mapa ocupa toda la altura de la tarjeta */
+  min-height: 400px; /* Asegura una altura mínima */
 }
+
 .map-container iframe {
   width: 100%;
   height: 100%;
   border: 0;
+}
 }
